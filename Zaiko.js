@@ -8,3 +8,5 @@ Sidebar = {
     Qty: 50
 };
 console.log(Sidebar)
+
+document.getElementById("Data").innerHtml = "Hello";

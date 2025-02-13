@@ -9,4 +9,4 @@ Sidebar = {
 };
 console.log(Sidebar)
 
-document.getElementById("Data").innerHtml = "Hello";
+document.getElementById("Data").innerHTML = "Hello";

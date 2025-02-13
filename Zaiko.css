@@ -4,7 +4,7 @@ h1{
 
 .SideBar{
     width: 25%;
-    height: 100%;
+    height: 60vh;
     border: solid black  ;
     border-radius: 15px;
 }

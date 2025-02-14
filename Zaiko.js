@@ -37,16 +37,16 @@ console.log(Walk_In);
 
 
 // WANT TO CREATE A FUNCTION THAT CREATES A NEW OBJECT 
-function NewProduct(){
-    return{
-    let Product2 : Objectifier("Pickles","Walk-In",56)
-    }
-}
-display(Product2)
 
 //document.getElementById("Data").innerHTML = Product;
 
+// the goal is to creat a function that takes any argument as a name and creates an object from it and spits it back at 
 
+function NewProduct(Newname){
+    let Newname = Objectifier("Pickles","Walk-In",56)
+    console.log(Newname)
+}
+ NewProduct();
 
 /* This doesnt work, the reason is because you need to create a function that creates a new object using the objectefier object
 

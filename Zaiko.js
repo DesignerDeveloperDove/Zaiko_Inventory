@@ -21,7 +21,7 @@ function Objectifier(ProdName, Location, Qty){
 // this makes a new object
 let Product = Objectifier("Patty","Walk-In",25)
 
-//console.log(Product);
+console.log(Product);
 
 //this displays the object
 function display(Name){
@@ -42,12 +42,8 @@ console.log(Walk_In);
 
 // the goal is to creat a function that takes any argument as a name and creates an object from it and spits it back at 
 
-function NewProduct(Newname){
-    let Newname = Objectifier("Pickles","Walk-In",56)
-    console.log(Newname)
-}
- NewProduct();
-
 /* This doesnt work, the reason is because you need to create a function that creates a new object using the objectefier object
 
 i recommend using a loop of some sort*/
+
+// now try to create a form that saves inputs as variables  

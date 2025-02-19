@@ -68,9 +68,6 @@ if (ProductToUpdate) {
 }
 }
 document.getElementById("Edit").addEventListener("click",Edit())
-<<<<<<< HEAD
-
-=======
 */
 let Walk_In = [];
 
@@ -126,4 +123,3 @@ function FormInfo() {
 }
 
 FormInfo();
->>>>>>> e439679888d8bbf52f3f615f41b78e097c07f65f

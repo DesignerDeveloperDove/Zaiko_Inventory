@@ -66,3 +66,57 @@ if (ProductToUpdate) {
 }
 document.getElementById("Edit").addEventListener("click",Edit())
 */
+let Walk_In = [];
+
+// This function creates a product object
+function Objectifier(ProdName, Location, Qty) {
+    return {
+        ProductName: ProdName,
+        ProductLocation: Location,
+        Quantity: Qty,
+    };
+}
+
+// This function displays the products in the "Data" div
+function displayWalkIn() {
+    let displayArea = document.getElementById("Data"); // Select the display area
+    displayArea.innerHTML = ""; // Clear existing content
+
+    Walk_In.forEach((item, index) => {
+        displayArea.innerHTML += `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity}</p>`;
+    });
+}
+
+function FormInfo() {
+    document.getElementById("FORM").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent page refresh
+
+        let a = document.getElementById("Product").value.trim();
+        let b = document.getElementById("Location").value.trim();
+        let c = document.getElementById("QTY").value.trim();
+
+        if (!a || !b || !c) {
+            alert("Please fill out all fields!");
+            return;
+        }
+
+        let existingIndex = Walk_In.findIndex(item => item.ProductName.toLowerCase() === a.toLowerCase());
+
+        if (existingIndex !== -1) {
+            // If product exists, update it
+            Walk_In[existingIndex].ProductLocation = b;
+            Walk_In[existingIndex].Quantity = c;
+            console.log(`Updated: ${a} at index ${existingIndex}`);
+        } else {
+            // If new product, add it
+            let newProduct = Objectifier(a, b, c);
+            Walk_In.push(newProduct);
+            console.log("APPEND COMPLETE");
+        }
+
+        console.log(Walk_In);
+        displayWalkIn(); // Update display
+    });
+}
+
+FormInfo();

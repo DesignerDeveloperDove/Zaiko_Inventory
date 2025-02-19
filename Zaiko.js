@@ -1,5 +1,7 @@
+// This section creates a object from a from and deisplays it in the "Data" Div
 let Walk_In=[];
 
+//this is the objectifier, it turns inputs into objects 
 function Objectifier(ProdName, Location, Qty){
 
     return{
@@ -10,12 +12,19 @@ function Objectifier(ProdName, Location, Qty){
 
 }
 
+// this displays thos objects in the "Data" Div -- his was made using chat
 function displayWalkIn() {
-    let displayArea = document.getElementById("Data");
-    displayArea.innerHTML = ""; // Clear existing content
+    let displayArea = document.getElementById("Data"); // this saves the "Data" div as a var called "displayArea"
+    displayArea.innerHTML = ""; // this Clears existing content
 
+    //item represents the current product in the loop.
+    //index is the position 
+    // for each goes through Each item in the Walkin array anf finds each Item(in our case product objects) and its index in the array
     Walk_In.forEach((item, index) => {
+        //displayArea is the element with id="Data", where we’re showing the products.
+        //.innerHTML += means "add this new HTML" to whatever is already inside.
         displayArea.innerHTML += `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity}</p>`;
+        
     });
 }
 
@@ -41,6 +50,19 @@ function displayWalkIn() {
 
 
 
-// creates an array that holds the Objects
+//Now this next section should edit the objects
 
 
+
+/*
+function editForm(){
+    document.getElementById("Edit").addEventListener("click",Edit())
+function Edit(){
+    objIndex = Walk_In.findIndex(obj => obj.id == 1);  
+    Walk_In[objIndex].ProductName = "Straws"
+    console.log(Walk_In)
+}
+}
+
+editForm();
+*/

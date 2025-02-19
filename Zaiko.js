@@ -20,8 +20,8 @@ function Objectifier(ProdName, Location, Qty){
 
 // this makes a new object
 //let Product = Objectifier("Patty","Walk-In",25)
-let Info = document.getElementById("Product").value;
-console.log(Info)
+
+/*
 let Product = Objectifier(form.Location)
 console.log(Product);
 
@@ -50,3 +50,11 @@ i recommend using a loop of some sort*/
 
 // now try to create a form that saves inputs as variables  
 
+
+//FORM WORK
+// Create a form that inputs as an object 
+document.getElementById("FORM").addEventListener("submit",function(event){
+    event.preventDefault();// prevents page from refreshing
+    let Info = document.getElementById("Product").value;
+    console.log(Info);
+});

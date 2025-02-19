@@ -51,7 +51,16 @@ function displayWalkIn() {
 
 
 //Now this next section should edit the objects
-
+function Edit(){
+let ProductToUpdate = Walk_In.find(item => item.ProductName === `${item.ProductName}`)
+if (ProductToUpdate) {
+    ProductToUpdate.quantity = 60; // Updating quantity
+    console.log(Walk_In);
+} else {
+    console.log("Product not found");
+}
+}
+document.getElementById("Edit").addEventListener("click",Edit())
 
 
 /*

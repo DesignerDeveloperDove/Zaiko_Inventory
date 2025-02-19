@@ -51,6 +51,10 @@ function displayWalkIn() {
 
 
 //Now this next section should edit the objects
+
+
+
+/*
 function Edit(){
 let ProductToUpdate = Walk_In.find(item => item.ProductName === `${item.ProductName}`)
 if (ProductToUpdate) {
@@ -61,17 +65,4 @@ if (ProductToUpdate) {
 }
 }
 document.getElementById("Edit").addEventListener("click",Edit())
-
-
-/*
-function editForm(){
-    document.getElementById("Edit").addEventListener("click",Edit())
-function Edit(){
-    objIndex = Walk_In.findIndex(obj => obj.id == 1);  
-    Walk_In[objIndex].ProductName = "Straws"
-    console.log(Walk_In)
-}
-}
-
-editForm();
 */

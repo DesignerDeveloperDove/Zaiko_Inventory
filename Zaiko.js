@@ -71,6 +71,7 @@ if (ProductToUpdate) {
 document.getElementById("Edit").addEventListener("click",Edit())
 
 */
+/*
 let Walk_In = [];
 
 // This function creates a product object
@@ -142,7 +143,7 @@ function FormInfo() {
 
 
 FormInfo()
-
+*/
 let Walk_In = [];
 
 // Function to create a product object
@@ -161,7 +162,7 @@ function displayWalkIn() {
 
     Walk_In.forEach((item, index) => {
         let productEntry = document.createElement("p");
-        productEntry.innerHTML = `<strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity} `;
+        productEntry.innerHTML = `<strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity }  `;
         
         // Create Delete Button
         let deleteBtn = document.createElement("button");
@@ -210,5 +211,9 @@ function FormInfo() {
         displayWalkIn(); // Update display
     });
 }
+document.getElementById("stepValue").addEventListener("input", function() {
+    let stepInput = document.getElementById("stepValue").value;
+    document.getElementById("QTY").step = stepInput;
+});
 
 FormInfo();

@@ -23,7 +23,7 @@ function displayWalkIn() {
     Walk_In.forEach((item, index) => {
         //displayArea is the element with id="Data", where we’re showing the products.
         //.innerHTML += means "add this new HTML" to whatever is already inside.
-        displayArea.innerHTML += `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity}</p>`;
+        displayArea.innerHTML += `<p><strong>${index + 1}.</strong> Product: ${item.ProductName} - Location:${item.ProductLocation} - Quantity: ${item.Quantity}</p>`;
         
     });
 }
@@ -52,9 +52,12 @@ function displayWalkIn() {
 
 //Now this next section should edit the objects
 
+// create a function that finds the object your looking for 
+//Add fields to enter new values
+//Create the EditProduct function that updates the existing object
+//Add an event listener to the "Edit" button
 
 
-/*
 function Edit(){
 let ProductToUpdate = Walk_In.find(item => item.ProductName === `${item.ProductName}`)
 if (ProductToUpdate) {
@@ -65,4 +68,4 @@ if (ProductToUpdate) {
 }
 }
 document.getElementById("Edit").addEventListener("click",Edit())
-*/
+

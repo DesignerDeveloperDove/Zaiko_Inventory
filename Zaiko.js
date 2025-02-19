@@ -122,6 +122,23 @@ function FormInfo() {
         console.log(Walk_In);
         displayWalkIn(); // Update display
     });
-}
 
-FormInfo();
+    document.getElementById("Delete").addEventListener("click", DeleteMe);
+
+    function DeleteMe() {
+        let productName = prompt("Enter the name of the product you want to delete:");
+    
+        let index = Walk_In.findIndex(item => item.ProductName === productName);
+    
+        if (index !== -1) {
+            Walk_In.splice(index, 1); // Remove 1 item at the found index
+            console.log("Product deleted.");
+            displayWalkIn(); // Refresh display
+        } else {
+            console.log("Product not found.");
+        }
+    }
+}    
+
+
+FormInfo()

@@ -154,7 +154,11 @@ function Objectifier(ProdName, Location, Qty) {
         Quantity: Qty,
     };
 }
-
+document.getElementById("stepValue").addEventListener("input", function() {
+    let stepInput = document.getElementById("stepValue").value;
+    document.getElementById("QTY").step = stepInput;
+    return stepInput
+});
 // Function to display products in the "Data" div
 function displayWalkIn() {
     let displayArea = document.getElementById("Data");
@@ -162,7 +166,8 @@ function displayWalkIn() {
 
     Walk_In.forEach((item, index) => {
         let productEntry = document.createElement("p");
-        productEntry.innerHTML = `<strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity }  `;
+        let stepInput = document.getElementById("stepValue").value;
+        productEntry.innerHTML = `<strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity * stepInput}  `;
         
         // Create Delete Button
         let deleteBtn = document.createElement("button");
@@ -211,9 +216,6 @@ function FormInfo() {
         displayWalkIn(); // Update display
     });
 }
-document.getElementById("stepValue").addEventListener("input", function() {
-    let stepInput = document.getElementById("stepValue").value;
-    document.getElementById("QTY").step = stepInput;
-});
+
 
 FormInfo();

@@ -1,4 +1,3 @@
-
 let Walk_In=[];
 
 function Objectifier(ProdName, Location, Qty){

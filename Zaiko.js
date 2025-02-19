@@ -131,7 +131,7 @@ function FormInfo() {
         let index = Walk_In.findIndex(item => item.ProductName === productName);
     
         if (index !== -1) {
-            Walk_In.splice(index, 1); // Remove 1 item at the found index
+            Walk_In.splice(index, ); // Remove 1 item at the found index
             console.log("Product deleted.");
             displayWalkIn(); // Refresh display
         } else {

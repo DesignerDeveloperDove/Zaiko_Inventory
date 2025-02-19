@@ -1,3 +1,4 @@
+/*
 // This section creates a object from a from and deisplays it in the "Data" Div
 let Walk_In=[];
 
@@ -68,6 +69,7 @@ if (ProductToUpdate) {
 }
 }
 document.getElementById("Edit").addEventListener("click",Edit())
+
 */
 let Walk_In = [];
 

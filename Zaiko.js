@@ -52,7 +52,7 @@ i recommend using a loop of some sort*/
 
 
 //FORM WORK
-// Create a form that inputs as an object 
+// Create a form that inputs as an object! 
 document.getElementById("FORM").addEventListener("submit",function(event){
     event.preventDefault();// prevents page from refreshing
     let Info = document.getElementById("Product").value;

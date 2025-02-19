@@ -7,16 +7,7 @@ console.log("The JS sheet is Connected");
 // this object should take perameter 
 // those peraneter should be data 
 
-// This function is a function that creates a single object 
-function Objectifier(ProdName, Location, Qty){
 
-    return{
-        ProductName: ProdName,
-        ProductLocation: Location,
-        Quantitiy: Qty,
-    };
-
-}
 
 // this makes a new object
 //let Product = Objectifier("Patty","Walk-In",25)
@@ -51,10 +42,56 @@ i recommend using a loop of some sort*/
 // now try to create a form that saves inputs as variables  
 
 
+
 //FORM WORK
 // Create a form that inputs as an object! 
-document.getElementById("FORM").addEventListener("submit",function(event){
+/*
+function FormInfo(x,y,z){
+  
+}
+
+  document.getElementById("FORM").addEventListener("submit",function(event){
     event.preventDefault();// prevents page from refreshing
     let Info = document.getElementById("Product").value;
-    console.log(Info);
+    let Info2 = document.getElementById("Location").value;
+    let Info3 = document.getElementById("QTY").value;
+    console.log(Info,Info2,Info3);
+
 });
+*/
+
+// This function is a function that creates a single object 
+let Walk_In=[];
+
+function Objectifier(ProdName, Location, Qty){
+
+    return{
+        ProductName: ProdName,
+        ProductLocation: Location,
+        Quantitiy: Qty,
+    };
+
+}
+
+
+  function FormInfo(){
+    document.getElementById("FORM").addEventListener("submit",function(event){
+      event.preventDefault();// prevents page from refreshing
+      let a = document.getElementById("Product").value;
+      let b = document.getElementById("Location").value;
+      let c = document.getElementById("QTY").value;
+        let newproduct = Objectifier(a,b,c)
+       //console.log(newproduct)
+        Walk_In.push(newproduct);
+
+       return this.newproduct;
+        
+  });
+  }
+  FormInfo()
+console.log(Walk_In)
+
+
+// creates an array that holds the Objects
+
+

@@ -152,6 +152,7 @@ function Objectifier(ProdName, Location, Qty) {
         ProductName: ProdName,
         ProductLocation: Location,
         Quantity: Qty,
+        
     };
 }
 document.getElementById("stepValue").addEventListener("input", function() {

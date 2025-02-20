@@ -217,7 +217,7 @@ function FormInfo() {
             Walk_In.push(newProduct);
         }
 
-        displayWalkIn(); // Update display
+        displayWalkIn(); 
     });
 
     
@@ -233,7 +233,7 @@ function SaveMe() {
 //this function should displayt
     document.getElementById("FinalBox").innerHTML = finalArray.map((item, index) => 
         `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity * stepInput}</p>`
-    ).join(""); // joining the array to avoid commas in display
+    ).join(""); 
 
     console.log("Saved!", finalArray);
 }

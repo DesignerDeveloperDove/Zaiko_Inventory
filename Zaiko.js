@@ -221,5 +221,20 @@ function FormInfo() {
     });
 }
 
+finalArray=[]
+
+let savebuttton = document.getElementById("Save");
+
+savebuttton.addEventListener("click",SaveMe);
+    function SaveMe(){
+        finalArray = [...Walk_In];
+        document.getElementById("FinalBox").innerHTML = finalArray.map((item, index) => 
+            `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity}</p>`
+        ).join(""); // Join the array to avoid commas in display
+    
+        console.log("Saved!", finalArray);
+    }
+
 
 FormInfo();
+

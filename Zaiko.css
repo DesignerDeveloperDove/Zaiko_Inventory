@@ -37,3 +37,23 @@ flex-direction: column;
     font-size: 30px;
     margin-left: 20%;
 }
+#FinalBox{
+    font-size: 24px;
+    font-weight: 300;
+    color: black;
+    border: solid black  ;
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 100%;
+    border-radius: 40px;
+    margin-left: 10%;
+}
+#Save{
+    width: 200px;
+    height: 30px;
+    background-color: rgb(231, 129, 178);
+    font-size: 14px;
+    position: relative;
+    bottom: 80px;
+}

@@ -147,11 +147,12 @@ FormInfo()
 let Walk_In = [];
 
 // Function to create a product object
-function Objectifier(ProdName, Location, Qty) {
+function Objectifier(ProdName, Location, Qty,StepValue) {
     return {
         ProductName: ProdName,
         ProductLocation: Location,
         Quantity: Qty,
+        StepValue: StepValue, 
 
     };
 }
@@ -166,14 +167,16 @@ document.getElementById("stepValue").addEventListener("input", function() {
 // Function to display products in the "Data" div
 function displayWalkIn() {
     let displayArea = document.getElementById("Data");
-    displayArea.innerHTML = ""; // Clear existing content
+    displayArea.innerHTML = ""; 
 
     Walk_In.forEach((item, index) => {
         let productEntry = document.createElement("p");
-        let stepInput = document.getElementById("stepValue").value;
-        productEntry.innerHTML = `<strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity * stepInput}  `;
-        
-        // Create Delete Button
+
+        productEntry.innerHTML = `
+            <strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - 
+            Quantity: ${item.Quantity*item.StepValue}
+        `;
+
         let deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete";
         deleteBtn.onclick = function () {
@@ -184,6 +187,7 @@ function displayWalkIn() {
         displayArea.appendChild(productEntry);
     });
 }
+
 
 // Function to remove a product from the list
 function removeProduct(index) {
@@ -199,7 +203,7 @@ function FormInfo() {
         let a = document.getElementById("Product").value.trim();
         let b = document.getElementById("Location").value.trim();
         let c = document.getElementById("QTY").value.trim();
-        let step = parseInt(document.getElementById("stepValue").value.trim(),10) || 1;
+        let step = parseFloat(document.getElementById("stepValue").value.trim()) || 1; // Get step value
 
         if (!a || !b || !c) {
             alert("Please fill out all fields!");
@@ -212,9 +216,11 @@ function FormInfo() {
             // Update existing product
             Walk_In[existingIndex].ProductLocation = b;
             Walk_In[existingIndex].Quantity = c;
+            Walk_In[existingIndex].StepValue = step; // Update step value only for that product
+
         } else {
             // Add new product
-            let newProduct = Objectifier(a, b, c);
+            let newProduct = Objectifier(a, b, c,step);
             Walk_In.push(newProduct);
         }
 
@@ -223,21 +229,19 @@ function FormInfo() {
 
     
 }
-
-let finalArray = [];
-
 document.getElementById("Save").addEventListener("click", SaveMe);
 
 function SaveMe() {
-    let stepInput = parseFloat(document.getElementById("stepValue").value) || 1; 
     finalArray = [...Walk_In];
-//this function should displayt
+    
     document.getElementById("FinalBox").innerHTML = finalArray.map((item, index) => 
-        `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - Quantity: ${item.Quantity * stepInput}</p>`
-    ).join(""); 
+        `<p><strong>${index + 1}.</strong> ${item.ProductName} - ${item.ProductLocation} - 
+        Quantity: ${item.Quantity * item.StepValue}</p>` // Uses product's own StepValue
+    ).join("");
 
     console.log("Saved!", finalArray);
 }
+
 
 
 FormInfo();

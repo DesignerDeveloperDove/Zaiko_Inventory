@@ -155,9 +155,12 @@ function Objectifier(ProdName, Location, Qty) {
     };
 }
 document.getElementById("stepValue").addEventListener("input", function() {
-    let stepInput = document.getElementById("stepValue").value;
-    document.getElementById("QTY").step = stepInput;
-    return stepInput
+    let stepInput = parseFloat(document.getElementById("stepValue").value);
+    
+    if (stepInput <= 0) {
+        alert("Step value must be greater than 0!");
+        document.getElementById("stepValue").value = 1; // Reset to 1 if invalid
+    }
 });
 // Function to display products in the "Data" div
 function displayWalkIn() {
@@ -195,6 +198,7 @@ function FormInfo() {
         let a = document.getElementById("Product").value.trim();
         let b = document.getElementById("Location").value.trim();
         let c = document.getElementById("QTY").value.trim();
+        let step = parseInt(document.getElementById("stepValue").value.trim(),10) || 1;
 
         if (!a || !b || !c) {
             alert("Please fill out all fields!");

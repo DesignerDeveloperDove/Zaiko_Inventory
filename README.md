@@ -4,6 +4,7 @@ THE php will be used to connect DB and perform functions on the DB
 
 
 Here is the goals we need to hit 
+
 1 create the same code in th main js , but in react 
 
 2 create the connection between backend & react app

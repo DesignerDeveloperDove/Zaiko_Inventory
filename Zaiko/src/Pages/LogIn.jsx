@@ -1,6 +1,6 @@
 import React from "react";
 import ZaikoLogo from './assets/ZaikoLogo.png'
-
+import UserLogIn from "./Components/LogInField";
 function LogIn(){
     return(
         <>
@@ -9,7 +9,15 @@ function LogIn(){
     </div>
         <h1>Log in here</h1>
 
+
+        <div className="LogInField">
+            < UserLogIn />
+        </div>
+
+
+
         </>
+
     );
 
 

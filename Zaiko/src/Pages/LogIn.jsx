@@ -1,5 +1,6 @@
 import React from "react";
 import UserLogIn from "./Components/LogInField";
+import Languages from "./Components/Languages";
 function LogIn(){
     return(
         <>
@@ -11,7 +12,9 @@ function LogIn(){
         <div className="LogInField">
             < UserLogIn />
         </div>
-
+        <div className="LangCircles">
+            <Languages />
+        </div>
 
 
         </>

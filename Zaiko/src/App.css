@@ -50,6 +50,27 @@
   justify-content: center;
 
 }
+#LogInBtn {
+  width: 50% ;
+  height: 8vh;
+  display: flex;
+  margin: auto;  
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+#LogInBtn h2{
+  color: white;
+  margin: auto;
+}
+#LogInBtn:hover {
+  width: 53% ;
+  height: 9vh;
+  display: flex;
+  margin: auto;  
+  margin-top: 4%;
+  margin-bottom: 4%;
+  background-color: rgb(219, 112, 5);
+}
 #LogInForm input{
   border-radius: 15px;
   height: 10vh;
@@ -67,4 +88,33 @@
 }
 .LogoImg img{
   width: 90vw;
+}
+#Circles {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 70%;
+  margin: auto;
+}
+
+#Circles p {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Makes them circles */
+  background-color: #888;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 2%;
+}
+
+#Circles p:hover{
+  width: 110px;
+  height: 110px;
+  border-radius: 50%; /* Makes them circles */
+  background-color: #071287;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 2%;
 }

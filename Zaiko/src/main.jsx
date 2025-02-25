@@ -8,6 +8,6 @@ import LogIn from './Pages/LogIn.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <LogIn />
-    <ProductCard />
+   {/*<ProductCard />*/}
   </StrictMode>,
 )

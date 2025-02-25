@@ -6,7 +6,6 @@ import ProductCard from './Productcard.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
     <ProductCard />
   </StrictMode>,
 )

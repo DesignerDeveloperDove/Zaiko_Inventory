@@ -1,5 +1,6 @@
 import React from "react";
-
+import ZaikoLogo from './assets/ZaikoLogo.png'
+import UserLogIn from "./Components/LogInField";
 function LogIn(){
     return(
         <>

@@ -4,7 +4,7 @@ function LogIn(){
     return(
         <>
         <div>
-      <img  src= 'assets/ZaikoLogo.png' alt="description" />
+      <img  src= 'src/assets/ZaikoLogo.jpg' alt="description" />
     </div>
         <h1>Log in here</h1>
 

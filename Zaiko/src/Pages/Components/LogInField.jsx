@@ -5,9 +5,10 @@ function UserLogIn(){
 
         <>
         
-        <form action="">
-            <input type="text" id="UserName" />
-            <input type="text" id="Password" />
+        <form action="" id="LogInForm">
+            <input type="text" id="UserName" placeholder="Enter Username Here" />
+            <input type="text" id="Password" placeholder="Enter Password Here"/>
+
         </form>
         
         

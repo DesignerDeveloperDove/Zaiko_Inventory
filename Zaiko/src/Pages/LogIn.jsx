@@ -1,5 +1,4 @@
 import React from "react";
-import ZaikoLogo from './assets/ZaikoLogo.png'
 
 function LogIn(){
     return(

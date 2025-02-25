@@ -3,10 +3,9 @@ import UserLogIn from "./Components/LogInField";
 function LogIn(){
     return(
         <>
-        <div>
-      <img  src= 'src/assets/ZaikoLogo-removebg-preview.png' alt="description" />
+        <div className="LogoImg">
+      <img  src= 'src/assets/ZaikoTrans2.png' alt="description" />
     </div>
-        <h1>Log in here</h1>
 
 
         <div className="LogInField">

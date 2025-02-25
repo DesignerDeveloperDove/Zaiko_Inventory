@@ -40,6 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+.LogInField{
+  justify-content: center;
+
+}
 #LogInForm{
-  border: solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+#LogInForm input{
+  border-radius: 15px;
+  height: 10vh;
+  margin: 5px;
+  width: 30vw;
+  justify-content: center;
+  align-items: center;
+  margin-left: 27vw;
+  font-size: 25px;
+  background-color: rgb(255, 255, 255);
+  border: solid black 3px;
+  color: black;
+  font-weight: bold;
+  padding-left: 5%;
+}
+.LogoImg img{
+  width: 90vw;
 }

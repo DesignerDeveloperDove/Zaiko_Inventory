@@ -118,3 +118,23 @@
   align-items: center; 
   margin: 2%;
 }
+
+.row{
+  float: left;
+  width: 50%;
+}
+
+.column:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.LocationBox{
+  width: 150px;
+  height: 150px;
+  border-radius: 15%;
+  border: solid black 3px;
+  margin: 20px;
+  padding-top: 20px;
+}

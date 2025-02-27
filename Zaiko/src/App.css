@@ -48,6 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 30vh;
 
 }
 #LogInBtn {
@@ -78,7 +79,7 @@
   width: 30vw;
   justify-content: center;
   align-items: center;
-  margin-left: 27vw;
+  margin: auto;
   font-size: 25px;
   background-color: rgb(255, 255, 255);
   border: solid black 3px;
@@ -86,9 +87,7 @@
   font-weight: bold;
   padding-left: 5%;
 }
-.LogoImg img{
-  width: 90vw;
-}
+
 #Circles {
   display: flex; 
   justify-content: space-between; 
@@ -137,4 +136,9 @@
   border: solid black 3px;
   margin: 20px;
   padding-top: 20px;
+}
+
+.ZaikoLogoImg{
+  width: 100%;
+  height: auto;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import DataInfo from "./Components/Data";
 
 function Home(){
     return(
@@ -20,6 +20,8 @@ function Home(){
             </div>
         </div>
         
+
+        <DataInfo />
         </>
     )
 }

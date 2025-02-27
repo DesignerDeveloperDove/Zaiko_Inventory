@@ -12,6 +12,7 @@ function Home(){
                     <h3>Walk-In</h3>
                 </div>
                 <div className="LocationBox"><h3>Freezer</h3></div>
+                
             </div>
             <div className="row">
                 <div className="LocationBox"><h3>Dry Storage</h3></div>

@@ -32,7 +32,9 @@ function DataInfo() {
             <p>TEST</p>
             <ul>
                 {Product.map((product) => (
-                    <li key={product.id}>{product.name}</li>
+                    <li key={product.id}>
+                    <strong>{product.name}</strong> - {product.location} (Qty: {product.quantity})
+                    </li>
                 ))}
             </ul>
         </>

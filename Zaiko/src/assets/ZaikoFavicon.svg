@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 612 792">
+  <!-- Generator: Adobe Illustrator 29.2.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 116)  -->
+  <g id="abacus">
+    <g>
+      <rect x="55.16" y="94.95" width="57.36" height="561.93" fill="#1d2758"/>
+      <rect x="499.49" y="94.95" width="57.36" height="561.93" fill="#1d2758"/>
+      <rect x="289.19" y="-44.49" width="24.66" height="453.29" transform="translate(119.37 483.67) rotate(-90)" fill="#1d2758"/>
+      <rect x="289.19" y="87.79" width="24.66" height="453.29" transform="translate(-12.92 615.96) rotate(-90)" fill="#1d2758"/>
+      <rect x="289.19" y="220.08" width="24.66" height="453.29" transform="translate(-145.2 748.24) rotate(-90)" fill="#1d2758"/>
+      <rect x="289.19" y="352.36" width="24.66" height="453.29" transform="translate(-277.48 880.52) rotate(-90)" fill="#1d2758"/>
+    </g>
+    <circle cx="157.63" cy="182.15" r="34.1" fill="#1d2758"/>
+    <circle cx="229.82" cy="182.15" r="34.1" fill="#d17c28"/>
+    <circle cx="301.52" cy="182.15" r="34.1" fill="#1d2758"/>
+    <circle cx="440.62" cy="314.44" r="34.1" fill="#d17c28"/>
+    <circle cx="446.94" cy="446.72" r="34.1" fill="#1d2758"/>
+    <circle cx="365.79" cy="314.44" r="34.1" fill="#d17c28"/>
+    <circle cx="372.41" cy="446.72" r="34.1" fill="#1d2758"/>
+    <circle cx="283.03" cy="579" r="34.1" fill="#1d2758"/>
+    <circle cx="301.52" cy="446.72" r="34.1" fill="#1d2758"/>
+    <circle cx="214.83" cy="579" r="34.1" fill="#1d2758"/>
+    <circle cx="146.62" cy="579" r="34.1" fill="#d17c28"/>
+    <circle cx="174.75" cy="314.44" r="34.1" fill="#1d2758"/>
+  </g>
+</svg>

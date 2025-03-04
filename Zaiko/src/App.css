@@ -1,6 +1,6 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: auto;
   padding: 2rem;
   text-align: center;
 }
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 30vh;
+  margin-top: 20vh;
 
 }
 #LogInBtn {
@@ -58,14 +58,15 @@
   margin: auto;  
   margin-top: 4%;
   margin-bottom: 4%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 #LogInBtn h2{
   color: white;
   margin: auto;
 }
-#LogInBtn:hover {
-  width: 53% ;
-  height: 9vh;
+#LogInBtn:active {
+  width: 50% ;
+  height: 8vh;
   display: flex;
   margin: auto;  
   margin-top: 4%;
@@ -74,9 +75,9 @@
 }
 #LogInForm input{
   border-radius: 15px;
-  height: 10vh;
+  height: 8vh;
   margin: 5px;
-  width: 30vw;
+  width: 40vw;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -90,32 +91,34 @@
 
 #Circles {
   display: flex; 
-  justify-content: space-between; 
+  justify-content: center; 
   align-items: center; 
   width: 70%;
   margin: auto;
+  gap: 40px;
 }
 
-#Circles p {
-  width: 100px;
-  height: 100px;
+.Flag {
+  width: 70px;
+  height: 70px;
   border-radius: 50%; /* Makes them circles */
   background-color: #888;
   display: flex;
   justify-content: center; 
   align-items: center; 
   margin: 2%;
+  object-fit: cover;
 }
 
-#Circles p:hover{
-  width: 110px;
-  height: 110px;
+.Flag:active{
   border-radius: 50%; /* Makes them circles */
   background-color: #071287;
   display: flex;
   justify-content: center; 
   align-items: center; 
   margin: 2%;
+  transform: scale(1.1); /* Slightly enlarges the image */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
 }
 
 .row{
@@ -129,16 +132,30 @@
   clear: both;
 }
 
-.LocationBox{
-  width: 150px;
-  height: 150px;
+.LocationBox {
+  width: 200px;
+  height: 200px;
   border-radius: 15%;
-  border: solid black 3px;
+  border-color: solid rgb(63, 63, 63) 3px;
+  background-color: #c1c1c1;
   margin: 20px;
-  padding-top: 20px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 
 .ZaikoLogoImg{
   width: 100%;
   height: auto;
+}
+
+footer {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+
 }

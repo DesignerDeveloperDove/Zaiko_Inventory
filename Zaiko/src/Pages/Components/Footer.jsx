@@ -3,8 +3,10 @@ import { Link } from "react-router";
 
 function Footer(){
     return(
-        <footer>
-            <Link to="/home"></Link>
+        <footer id="Footer">
+            <div>
+                <Link to="/home"></Link>
+            </div>
         </footer>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./Components/Footer";
-
+import DataInfo from "./Components/Data";
 
 function Home(){
     return(
@@ -29,6 +29,8 @@ function Home(){
             </div>
         </div>
         <button id="LocationCategorie">Review</button>
+        < DataInfo />
+        
         <Footer />
         </>
     )

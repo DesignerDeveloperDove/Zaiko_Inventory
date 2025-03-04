@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
 
-// this is where we are fetching the data from 
-const Data_URL = "http://localhost:8000"; 
+const Data_URL = "http://localhost:8000"; // Ensure this matches your PHP server URL
+
+
 
 function DataInfo() {
     const [Product, setProduct] = useState([]);
@@ -10,31 +10,33 @@ function DataInfo() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`${Data_URL}/Products`);
-
+                const response = await fetch(Data_URL); // No `/Products`
+                console.log(response);
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
 
-                const NewProduct = await response.json();
-                setProduct(NewProduct);
+                const data = await response.json();
+                console.log("Fetched Data:", data); // Debugging
+                setProduct(data.products); // Access "products" array
             } catch (error) {
                 console.error("Error fetching products:", error);
             }
         };
 
         fetchProduct();
-    }, []); // Empty dependency array ensures this only runs on mount
+    }, []);
 
     return (
         <>
             <p>TEST</p>
             <ul>
-                {Product.map((Products) => (
-                    <li key={Products.ProdId}>{Products.ProdName}</li>
+                {Product.map((product) => (
+                    <li key={product.id}>{product.name}</li>
                 ))}
             </ul>
         </>
     );
 }
-export default DataInfo
+
+export default DataInfo;

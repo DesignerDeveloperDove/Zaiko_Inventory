@@ -13,7 +13,7 @@ function Home(){
                     <p>10 Items</p>
                     </div>
                 <div className="LocationBox">
-                    <h3>Freezer</h3>
+                    <h3>Deep Freezer</h3>
                     <p>10 Items</p>
                     </div>
             </div>
@@ -23,7 +23,7 @@ function Home(){
                     <p>10 Items</p>
                     </div>
                 <div className="LocationBox">
-                    <h3>Chemical</h3>
+                    <h3>Sanitary Storage</h3>
                     <p>10 Items</p>
                     </div>
             </div>

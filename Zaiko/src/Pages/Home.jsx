@@ -1,7 +1,6 @@
 import React from "react";
 import Footer from "./Components/Footer";
 import DataInfo from "./Components/Data";
-
 function Home(){
     return(
         <>

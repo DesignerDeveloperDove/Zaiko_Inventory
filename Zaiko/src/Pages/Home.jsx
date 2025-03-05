@@ -9,10 +9,10 @@ function Home(){
         <div className="main column">
             <div className="row">
                 <Link to={"/Walk-In"}>
-                <button className="LocationBox">
+                <div className="LocationBox">
                     <h3>Walk-In</h3>
                     <p>10 Items</p>
-                    </button>
+                    </div>
                     </Link>
                 <div className="LocationBox">
                     <h3>Deep Freezer</h3>

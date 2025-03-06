@@ -11,11 +11,9 @@ function Home() {
       <div className="main column">
         <div className="row">
         <Link to="/walk-in">  
-
             <div className="LocationBox">
                 <h3>Walk-In</h3>
                 <p>10 Items</p>
-                
             </div>
           </Link>
           <div className="LocationBox">

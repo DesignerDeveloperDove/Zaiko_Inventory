@@ -1,12 +1,9 @@
 import React from "react";
 import Footer from "./Components/Footer";
 import DataInfo from "./Components/Data";
-import { useNavigate } from "react-router-dom";
-
-function Home() {
-    const navigate = useNavigate();
-
-    return (
+import { Link } from "react-router";
+function Home(){
+    return(
         <>
             <h2>Locations</h2>
             <div className="main column">
@@ -32,11 +29,12 @@ function Home() {
                         <h3>Sanitary Storage</h3>
                         <p>10 Items</p>
                     </div>
-                </div>
             </div>
-            <button id="LocationCategorie">Review</button>
-            <DataInfo />
-            <Footer />
+        </div>
+        <button id="LocationCategorie">Review</button>
+        < DataInfo />
+        
+        <Footer />
         </>
     );
 }

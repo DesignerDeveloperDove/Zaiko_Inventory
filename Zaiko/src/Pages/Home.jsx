@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "./Components/Footer";
 import DataInfo from "./Components/Data";
 import { Link } from "react-router";
+import WalkIn from "./Walk-In";
 function Home(){
     return(
         <>
@@ -32,7 +33,7 @@ function Home(){
         </div>
         <button id="LocationCategorie">Review</button>
         < DataInfo />
-        
+        <WalkIn />
         <Footer />
         </>
     )

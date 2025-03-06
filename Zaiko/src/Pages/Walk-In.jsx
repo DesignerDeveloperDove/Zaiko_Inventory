@@ -15,8 +15,7 @@ function WalkIn() {
   }, []); 
 
 // EVERYTHING ABOVE IS THE SET UP, IT GRABS THE PRODUCTS 
-
-// Filter products with location "Walk-In"
+  // Filter products with location "Walk-In"
 
 
   useEffect(() => {

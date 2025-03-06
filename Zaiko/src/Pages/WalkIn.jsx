@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom"; 
 function WalkIn() {
   const [products, setProducts] = useState([]); // Stores all products
   const [walkInProducts, setWalkInProducts] = useState([]); // Stores only "Walk-In" products
@@ -25,7 +25,7 @@ function WalkIn() {
   return (
     <>
       <div className="WalkInInfo">
-        <h2> &lt;Walk-In Freezer Products</h2>
+        <h2 > <Link to="/Home">&lt;Walk-In Freezer Products   </Link></h2>
         <div className="product-list">
           {walkInProducts.length > 0 ? (
             walkInProducts.map((product) => {

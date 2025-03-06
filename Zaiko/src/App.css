@@ -40,40 +40,44 @@
 .read-the-docs {
   color: #888;
 }
-.LogInField{
-  justify-content: center;
 
+.LogInField {
+  justify-content: center;
 }
-#LogInForm{
+
+#LogInForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 20vh;
-
 }
+
 #LogInBtn {
-  width: 50% ;
-  height: 8vh;  
+  width: 50%;
+  height: 8vh;
   display: flex;
-  margin: auto;  
+  margin: auto;
   margin-top: 4%;
   margin-bottom: 4%;
   background-color: rgba(0, 0, 0, 0.3);
 }
-#LogInBtn h2{
+
+#LogInBtn h2 {
   color: white;
   margin: auto;
 }
+
 #LogInBtn:active {
-  width: 50% ;
+  width: 50%;
   height: 8vh;
   display: flex;
-  margin: auto;  
+  margin: auto;
   margin-top: 4%;
   margin-bottom: 4%;
   background-color: rgb(219, 112, 5);
 }
-#LogInForm input{
+
+#LogInForm input {
   border-radius: 15px;
   height: 8vh;
   margin: 5px;
@@ -90,9 +94,9 @@
 }
 
 #Circles {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70%;
   margin: auto;
   gap: 40px;
@@ -101,32 +105,32 @@
 .Flag {
   width: 70px;
   height: 70px;
-  border-radius: 50%; /* Makes them circles */
+  border-radius: 50%;
   background-color: #888;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   margin: 2%;
   object-fit: cover;
 }
 
-.Flag:active{
-  border-radius: 50%; /* Makes them circles */
+.Flag:active {
+  border-radius: 50%;
   background-color: #071287;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   margin: 2%;
-  transform: scale(1.1); /* Slightly enlarges the image */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.row{
+.row {
   float: left;
   width: 50%;
 }
 
-.column:after{
+.column:after {
   content: "";
   display: table;
   clear: both;
@@ -146,8 +150,7 @@
   justify-content: space-between;
 }
 
-
-.ZaikoLogoImg{
+.ZaikoLogoImg {
   width: 100%;
   height: auto;
 }
@@ -157,27 +160,55 @@ footer {
   color: white;
   padding: 20px;
   text-align: center;
-
 }
-.WalkInInfo{
+
+.LocationTabs h2 {}
+
+.Location-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.LocationSquares {
+  width: 200px;
+  height: 200px;
+  border-radius: 15%;
+  border: solid rgb(63, 63, 63) 3px;
+  background-color: #c1c1c1;
+  margin: 20px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.LocationSquares strong {
+  font-size: 3vw;
+  width: 80%;
+  position: relative;
+  color: #071287;
+  display: flex;
+}
+
+.WalkInInfo {
   color: black;
   padding: 30px;
   width: 75vw;
 }
 
-.WalkInInfo h2{
+.WalkInInfo h2 {
   font-size: 3vw;
   width: 80%;
   position: relative;
-  left:-130px;
-  top:-50px;
+  left: -130px;
+  top: -50px;
   color: #071287;
-
 }
+
 .product-list {
   display: flex;
   flex-direction: column;
- 
 }
 
 .product-card {
@@ -191,16 +222,56 @@ footer {
   margin-bottom: 50px;
   background-color: #d5d4d4;
 }
+
 .product-card h3 {
   font-size: 2vw;
   margin-top: 2%;
   margin-left: 2%;
   float: left;
 }
+
 .product-card p {
   font-size: 14px;
   margin: 5px 0;
   justify-content: center;
   width: 100%;
   flex-direction: row;
+}
+
+/* Added styles for LocationTabs */
+.LocationTabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.Location-list {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  width: 100%;
+}
+
+.LocationTabs ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+  list-style-type: none;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.LocationTabs ul li {
+  width: calc(50% - 10px);
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .LocationTabs ul li {
+    width: 100%; 
+  }
 }

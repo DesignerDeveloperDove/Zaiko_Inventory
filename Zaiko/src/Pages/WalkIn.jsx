@@ -6,19 +6,15 @@ function WalkIn() {
 
   // Fetch products on mount
   useEffect(() => {
-    fetch("http://localhost:8000")
-      .then((res) => res.json()) 
+    fetch("http://localhost:8001")
+      .then((res) => res.json())
       .then((data) => {
         setProducts(data.products || []); // Store all products
       })
       .catch(() => alert("No products have been grabbed"));
-  }, []); 
+  }, []);
 
-// EVERYTHING ABOVE IS THE SET UP, IT GRABS THE PRODUCTS 
-
-// Filter products with location "Walk-In"
-
-
+  // Filter products with location "Walk-In"
   useEffect(() => {
     const filtered = products.filter(
       (product) => product.location?.toLowerCase().trim() === "walk-in"
@@ -28,23 +24,29 @@ function WalkIn() {
 
   return (
     <>
-    <div className="WalkInInfo">
-
-    <h2>Walk-In Freezer Products</h2>
-        <ul>
+      <div className="WalkInInfo">
+        <h2> &lt;Walk-In Freezer Products</h2>
+        <div className="product-list">
           {walkInProducts.length > 0 ? (
-            walkInProducts.map((product) => (
-              <li key={product.id}>
-                {product.name} - {product.quantity} - {product.location}
-              </li>
-            ))
+            walkInProducts.map((product) => {
+              const myObj = {
+                name: product.name,
+                QTY: product.quantity,
+                Location: product.location
+              };
+              return (
+                <div key={product.id} className="product-card">
+                  <h3>{myObj.name}</h3>
+                  <p><strong>Quantity:</strong> {myObj.QTY}
+                  <strong>Location:</strong> {myObj.Location}</p>
+                </div>
+              );
+            })
           ) : (
             <p>No products found in Walk-In.</p>
           )}
-        </ul>
-
-    </div>
-   
+        </div>
+      </div>
     </>
   );
 }

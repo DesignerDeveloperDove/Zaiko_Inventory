@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "./Components/Footer";
 import DataInfo from "./Components/Data";
 import { Link } from "react-router-dom";  // Correct import for Link
-import WalkIn from "./WalkIn";
 
 function Home() {
   return (

@@ -6,6 +6,7 @@ function WalkIn({ Product }) {
   );
 
   return (
+    <>
     <ul>
       {walkInProducts.length > 0 ? (
         walkInProducts.map((product) => (
@@ -17,6 +18,7 @@ function WalkIn({ Product }) {
         <p>No Walk-In products found.</p>
       )}
     </ul>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
   const [username, setUsername] = useState("");
@@ -9,7 +9,7 @@ function LogIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username === "admin" && password === "password") {
-      navigate("/home"); // Redirect to home page
+      navigate("/home");
     } else {
       alert("Invalid credentials!");
     }

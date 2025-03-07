@@ -32,7 +32,14 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
+.Header{
+  color: #011f5b;
+  font-family: Open Sans;
+  width: 75%;
+  display: flex;
+  justify-content: start;
+  
+}
 .card {
   padding: 2em;
 }
@@ -156,10 +163,17 @@
 }
 
 footer {
-  background: #111;
+  background: #f9f9f9;
   color: white;
-  padding: 20px;
-  text-align: center;
+  width: 100vw;
+  height: 100px;
+  text-align: center; 
+  width: 100%;
+  margin: 0px;
+  position: sticky;
+  bottom:20px;
+  box-shadow: 10px 10px 40px 40px rgba(0, 0, 0, 0.14);
+
 }
 
 .LocationTabs h2 {}
@@ -170,40 +184,58 @@ footer {
 }
 
 .LocationSquares {
-  width: 200px;
-  height: 200px;
-  border-radius: 15%;
-  border: solid rgb(63, 63, 63) 3px;
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  border: solid rgba(0, 0, 0, 0.193) 3px;
   background-color: #c1c1c1;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   text-align: left;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: relative;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.28);;
 }
 
 .LocationSquares strong {
-  font-size: 3vw;
+  font-size: 4vw;
   width: 80%;
   position: relative;
-  color: #071287;
+  color: #4a3737d5;
   display: flex;
+  position: relative;
+  bottom:90px;
+}
+.LocationSquares  button{
+  background-color: #00000000;
+  border: none;
+  width: 30vw;
+  height: 40vh;
 }
 
-.WalkInInfo {
-  color: black;
-  padding: 30px;
-  width: 75vw;
+.NumOfItems {
+  font-family: Open Sans;
+  font-weight: bold;
+  font-size: 24px;
+  position: absolute;
+  bottom: 10px; 
+  left: 32px; 
+  
 }
+.NumOfItems p{
+  color: #4a3737ea;
 
-.WalkInInfo h2 {
+}
+.product-list h2 {
   font-size: 3vw;
   width: 80%;
   position: relative;
   left: -130px;
   top: -50px;
-  color: #071287;
+  color: #011f5b;
 }
 
 .product-list {
@@ -221,6 +253,8 @@ footer {
   margin-top: 0%;
   margin-bottom: 50px;
   background-color: #d5d4d4;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 14px 0 rgba(0, 0, 0, 0.106);
+
 }
 
 .product-card h3 {
@@ -245,7 +279,7 @@ footer {
   align-items: center; 
   justify-content: center;
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .Location-list {
@@ -261,7 +295,7 @@ footer {
   justify-content: space-between;
   padding: 0;
   list-style-type: none;
-  width: 60%;
+  width: 80%;
   margin-bottom: 20px;
 }
 

@@ -45,14 +45,14 @@ console.log(products);
                         <div key={index} className="LocationSquares" 
                         style={{ backgroundColor: Tabcolors[index % Tabcolors.length] }}
                         >
-                        <Link to={`/location/${encodeURIComponent(location)}`}>
-                            <button>
-                            <strong>{location}</strong>  
-                            </button>
-                        </Link>
-                        <div className="NumOfItems">
-                           <p>{productCounts[location] }  items</p> 
-                        </div>
+                            <Link to={`/location/${encodeURIComponent(location)}`}>
+                                <button>
+                                <strong>{location}</strong>  
+                                </button>
+                            </Link>
+                            <div className="NumOfItems">
+                            <p>{productCounts[location] }  items</p> 
+                            </div>
                         </div>
                     ))
                     ) : (

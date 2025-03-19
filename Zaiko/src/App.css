@@ -1,10 +1,14 @@
 #root {
-  max-width: 1280px;
+  max-width: 840px;
   margin: auto;
-  padding: 2rem;
+  padding: 0px  32px  0px 32px ;
   text-align: center;
+  height: 96vh;
+  border: solid black 6px;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -35,10 +39,10 @@
 .Header{
   color: #011f5b;
   font-family: Open Sans;
-  width: 75%;
+  width: 95%;
   display: flex;
   justify-content: start;
-  
+  border: solid black;
 }
 .card {
   padding: 2em;
@@ -206,7 +210,9 @@ footer {
   color: #4a3737d5;
   display: flex;
   position: relative;
-  bottom:90px;
+  bottom:248px;
+  /*position: relative;
+  bottom: 250px;*/
 }
 .LocationSquares  button{
   background-color: #00000000;
@@ -294,7 +300,7 @@ footer {
   justify-content: space-between;
   padding: 0;
   list-style-type: none;
-  width: 80%;
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -303,7 +309,7 @@ footer {
   margin: 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .LocationTabs ul li {
     width: 100%; 
   }

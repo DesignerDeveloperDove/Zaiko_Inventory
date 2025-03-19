@@ -7,7 +7,7 @@ function ProductPage() {
 
     useEffect(() => {
         // Fetch the products from the API
-        fetch("http://localhost:8001")
+        fetch("http://developerdove.com/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
                 // Filter the products based on the location

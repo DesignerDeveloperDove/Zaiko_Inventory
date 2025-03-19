@@ -12,7 +12,7 @@ function Los() {
 
     // fetch products from backend
     useEffect(() => {
-        fetch("http://localhost:8001") // this will be replaced with the backend URL on launch date 
+        fetch("http://developerdove.com/ZaikoApp/") // this will be replaced with the backend URL on launch date 
           .then((res) => res.json())
           .then((data) => {
             setProducts(data.products || []); // store all products

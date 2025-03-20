@@ -145,7 +145,7 @@ html{
   display: table;
   clear: both;
 }
-
+/*
 .LocationBox {
   width: 200px;
   height: 200px;
@@ -159,7 +159,7 @@ html{
   flex-direction: column;
   justify-content: space-between;
 }
-
+*/
 .ZaikoLogoImg {
   width: 100%;
   height: auto;

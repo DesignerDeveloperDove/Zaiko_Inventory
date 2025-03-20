@@ -301,7 +301,8 @@ footer {
   margin-bottom: 20px;
 }
 
-/*.LocationTabs ul li {
+/*
+.LocationTabs ul li {
   width: calc(50% - 10px);
   margin: 10px;
 }

@@ -1,5 +1,5 @@
 #root {
-  max-width: 840px;
+  max-width: 834px;
   margin: auto;
   padding: 0px  32px  0px 32px ;
   text-align: center;
@@ -282,15 +282,15 @@ footer {
   flex-direction: column;
   align-items: center; 
   justify-content: center;
-  width: 100%;
-  padding: 1rem;
+  width: auto;
+  padding: 0px 10px;
+  border: solid black 3px;
 }
 
 .Location-list {
   display: flex;
   flex-wrap: wrap; 
   justify-content: center; 
-  width: 100%;
 }
 
 .LocationTabs ul {
@@ -298,11 +298,11 @@ footer {
   flex-wrap: wrap;
   padding: 10px;
   list-style-type: none;
-  width: 100%;
+  width: auto;
   margin-bottom: 20px;
 }
 
-.LocationTabs ul li {
+/*.LocationTabs ul li {
   width: calc(50% - 10px);
   margin: 10px;
 }
@@ -312,3 +312,4 @@ footer {
     width: 100%; 
   }
 }
+*/

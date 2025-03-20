@@ -179,11 +179,12 @@ footer {
 
 }
 
-
+/*
 .Location-list {
- 
+  display: flex;
+  flex-direction: column;
 }
-
+*/
 .LocationSquares {
   width: 300px;
   height: 300px;

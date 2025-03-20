@@ -35,9 +35,9 @@ function Los() {
 console.log(products);
     return (
         <>
-            
+                            <h1 className="Header">Locations</h1>
+
             <div className="LocationTabs">
-                <h1 className="Header">Locations</h1>
                 <ul>
                 {locationList.length > 0 ? (
                     locationList.map((location, index) => (

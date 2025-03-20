@@ -186,8 +186,8 @@ footer {
 }
 */
 .LocationSquares {
-  width: 300px;
-  height: 300px;
+  width: 288px;
+  height: 288px;
   border-radius: 16px;
   border: solid rgba(0, 0, 0, 0.193) 3px;
   background-color: #c1c1c1;

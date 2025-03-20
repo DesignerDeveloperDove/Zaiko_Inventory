@@ -4,7 +4,6 @@
   padding: 0px  32px  0px 32px ;
   text-align: center;
   height: 96vh; 
-  border: solid black 6px;
 }
 html{
   scroll-behavior: smooth;
@@ -167,7 +166,7 @@ html{
 }
 
 footer {
-  background: #f9f9f9;
+  background: #011f5b;
   color: white;
   width: 100vw;
   height: 100px;

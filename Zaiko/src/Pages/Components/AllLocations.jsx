@@ -37,7 +37,6 @@ console.log(products);
         <>
             
             <div className="LocationTabs">
-            <img src="./" alt="" />
                 <h1 className="Header">Locations</h1>
                 <ul>
                 {locationList.length > 0 ? (

@@ -183,7 +183,7 @@ footer {
 .Location-list {
   display: flex;
   flex-direction: column;
-  border: solid black 3px;
+  border: solid black 30px;
 }
 
 .LocationSquares {

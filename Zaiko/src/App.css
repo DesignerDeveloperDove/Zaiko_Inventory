@@ -1,8 +1,15 @@
 #root {
   max-width: 834px;
+<<<<<<< HEAD
   margin: auto;
   text-align: center;
   border: solid black
+=======
+
+
+  text-align: center;
+  height: auto; 
+>>>>>>> f6f90f1e9ae701e1af27413d7137f69986fcab58
 }
 html{
   scroll-behavior: smooth;
@@ -170,12 +177,10 @@ footer {
   width: 100vw;
   height: 100px;
   text-align: center; 
-  width: 100%;
+  width: auto;
   margin: 0px;
-  position: sticky;
-  bottom:20px;
-  box-shadow: 10px 10px 40px 40px rgba(0, 0, 0, 0.14);
-
+  position: relative;
+  top: auto;
 }
 
 /*

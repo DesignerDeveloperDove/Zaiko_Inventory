@@ -36,6 +36,7 @@ console.log(products);
     return (
         <>
                             <h1 className="Header">Locations</h1>
+                            
 
             <div className="LocationTabs">
                 <ul>

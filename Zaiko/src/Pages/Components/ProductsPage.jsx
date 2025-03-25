@@ -22,15 +22,27 @@ function ProductPage() {
     const decodedLocation = decodeURIComponent(location);  // this basically says if there are any special characters in the name just ignore them
 
     return (
-        <div className="product-list">
-            <h2><Link to="/Home">&lt;{decodedLocation}</Link></h2>
+        <div className="productList">
+            <div className="ProductHeader">
+                <h2><Link to="/Home">&lt;   {decodedLocation}</Link></h2>
+
+                <form action="">
+                    <input type="text" placeholder="Search..." />
+                </form>
+            </div>
+           
             <ul>
                 {products.length > 0 ? (
                     products.map((product, index) => (
-                        <div className="product-card " key={product.id}>
+                        <div className="productCard " key={product.id}>
                             <h3>{product.name}</h3>
-                            <p><strong>Quantity:</strong>{product.quantity} 
-                            {/**<strong>Location:</strong>{product.location}*/}</p>
+                           {/**  <p><strong>Quantity:</strong>{product.quantity} 
+                            <strong>Location:</strong>{product.location}</p>*/}
+                            <form className="EditQTY" action="">
+                                <button id="QTYBTN" type="button" onClick={product.quantity}>+</button>
+                                <input id="QTYField" type="number" placeholder={product.quantity} />
+                                <button id="QTYBTN" type="button">-</button>
+                            </form>
                             
                         </div>
                         

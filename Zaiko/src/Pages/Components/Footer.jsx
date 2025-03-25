@@ -5,7 +5,7 @@ function Footer(){
     return(
         <footer id="Footer">
             <div>
-                <img src="../src/assets/inventory icon.svg" alt="" />
+                <img src="../src/assets/inventory icon.svg" alt=""/>
                 <img src="../src/assets/profile icon.svg" alt="" />
                 <img src="../src/assets/reports icon.svg" alt="" />
             </div>

@@ -1,9 +1,15 @@
 #root {
   max-width: 834px;
+<<<<<<< HEAD
+  margin: auto;
+  text-align: center;
+  border: solid black
+=======
 
 
   text-align: center;
   height: auto; 
+>>>>>>> f6f90f1e9ae701e1af27413d7137f69986fcab58
 }
 html{
   scroll-behavior: smooth;

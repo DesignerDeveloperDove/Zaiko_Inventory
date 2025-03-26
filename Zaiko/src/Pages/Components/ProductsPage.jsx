@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 function ProductPage() {
     const { location } = useParams();  // Get the location from the URL params
     const [products, setProducts] = useState([]);  // State to store the products
@@ -39,7 +40,7 @@ function ProductPage() {
                            {/**  <p><strong>Quantity:</strong>{product.quantity} 
                             <strong>Location:</strong>{product.location}</p>*/}
                             <form className="EditQTY" action="">
-                                <button id="QTYBTN" type="button" onClick={product.quantity}>+</button>
+                                <button id="QTYBTN" type="button" >+</button>
                                 <input id="QTYField" type="number" placeholder={product.quantity} />
                                 <button id="QTYBTN" type="button">-</button>
                             </form>

@@ -380,3 +380,60 @@ font-size: 20px;
   }
 }
 */
+/* Make the container take the full width and height */
+.OrderHistory {
+  width: 100%;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Light background */
+}
+
+/* Title styling */
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+/* Total count styling */
+p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Make table take the full width */
+table {
+  width: 90%; /* Adjust width to fit within the viewport */
+  max-width: 1200px; /* Prevents it from getting too wide */
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Table headers */
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Hover effect */
+tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}

@@ -1,26 +1,35 @@
-import React from 'react';
-import OrderHistory from './Pages/OrderHistory';
+import React from "react";
 
 function OrderHistory() {
-  return (
-    <table>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-  );
+    const data = [
+        { name: "Anom", total: "Male" },
+        { name: "Megha", total: "Female" },
+        { name: "Subham", total: "Male" },
+    ];
+
+    return (
+        <div className="OrderHistory">
+            <h2>Order History</h2>
+            <p>Total Items: {data.length}</p>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((val, key) => (
+                        <tr key={key}>
+                            <td>{val.name}</td>
+                            <td>{val.total}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default OrderHistory;

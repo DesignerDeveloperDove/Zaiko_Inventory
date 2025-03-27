@@ -1,6 +1,7 @@
 #root {
-  max-width: 834px;
-  margin: auto;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
   text-align: center;
   border: solid black
 }
@@ -400,3 +401,55 @@ font-size: 20px;
   }
 }
 */
+
+.OrderHistory {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}

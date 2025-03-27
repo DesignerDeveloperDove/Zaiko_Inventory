@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Pages/Home';
 import LogIn from "./Pages/LogIn";
 import ProductPage from "./Pages/Components/ProductsPage";
+import OrderHistory from "./Pages/OrderHistory";
 import './App.css'
 
 
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" element={<LogIn />} />
       <Route path="/home" element={<Home />} />
       <Route path="/location/:location" element={<ProductPage />} />
+      <Route path="/order-history" element={<OrderHistory />} />
       </Routes>
   </Router>
   )

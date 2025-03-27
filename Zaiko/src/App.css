@@ -1,9 +1,8 @@
 #root {
-  width: 100vw;
+  width: auto;
   max-width: none;
-  margin: 0;
+  margin: none;
   text-align: center;
-  border: solid black
 }
 
 /*
@@ -175,15 +174,24 @@ html{
 }
 
 footer {
-  background: #cbd2e1;
+  background: #f3f3f3;
   color: white;
   width: 100vw;
   height: 100px;
   text-align: center; 
-  width: auto;
-  margin: 0px;
-  position: relative;
-  top: auto;
+  position: fixed;
+  bottom: 0px;
+  box-shadow: 0px 0px 10px 2px #100e0e38;
+
+}
+.FooterContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#Option{
+  margin-top: 2%;
+  width: 60px;
 }
 .ProductHeader{
   width: 95vw; 
@@ -221,7 +229,6 @@ footer {
   border: solid rgba(0, 0, 0, 0.193) 3px;
   background-color: #c1c1c1;
   margin: 16px ;
-
   text-align: left;
   display: flex;
   flex-wrap: wrap;
@@ -239,8 +246,7 @@ footer {
   display: flex;
   position: relative;
   bottom:248px;
-  /*position: relative;
-  bottom: 250px;*/
+ 
 }
 .LocationSquares  button{
   background-color: #00000000;
@@ -355,7 +361,6 @@ font-weight: bold;
   justify-content: center;
   width: auto;
   padding: 0px 10px;
-  border: solid black 3px;
 }
 
 .Location-list {

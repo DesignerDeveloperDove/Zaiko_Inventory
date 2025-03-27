@@ -35,9 +35,7 @@ function Los() {
 console.log(products);
     return (
         <>
-                            <h1 className="Header">Locations</h1>
-                            
-
+            <h1 className="Header">Locations</h1>
             <div className="LocationTabs">
                 <ul>
                 {locationList.length > 0 ? (

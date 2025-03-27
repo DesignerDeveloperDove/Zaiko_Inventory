@@ -15,7 +15,7 @@ function App() {
       <Route path="/" element={<LogIn />} />
       <Route path="/home" element={<Home />} />
       <Route path="/location/:location" element={<ProductPage />} />
-      <Route path="/order-history" element={<OrderHistory />} />
+      <Route path="/OrderHistory.jsx" element={<OrderHistory />} />
       </Routes>
   </Router>
   )

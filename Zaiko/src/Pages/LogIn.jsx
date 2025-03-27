@@ -64,10 +64,7 @@ function LogIn() {
         </div>
         <h2>Languages</h2>
       </form>
-      <button 
-                onClick={() => navigate("/order-history")}>
-                Go to Order History
-            </button>
+      
     </div>
   );
 }

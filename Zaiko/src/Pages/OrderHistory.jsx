@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Components/Footer";
 
 function OrderHistory() {
     const data = [
@@ -28,7 +29,9 @@ function OrderHistory() {
                     ))}
                 </tbody>
             </table>
+            <Footer />
         </div>
+        
     );
 }
 

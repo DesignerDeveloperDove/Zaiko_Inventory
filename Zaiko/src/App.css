@@ -342,7 +342,11 @@ border: solid 2px #011f5b;
 border-radius:6px;
 color: #011f5b;
 font-size: 20px;
+text-align: center;
+font-weight: bold;
+
 }
+
 /* Added styles for LocationTabs */
 .LocationTabs {
   display: flex;

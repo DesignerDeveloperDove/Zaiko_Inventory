@@ -61,7 +61,7 @@ function ProductPage() {
                                     id="QTYField" 
                                     type="number" 
                                     value={product.quantity} 
-                                    readOnly
+                                    
                                 />
                                 <button id="QTYBTN" type="button" onClick={()=> DecrementQuantity(index)}>-</button>
                             </form>

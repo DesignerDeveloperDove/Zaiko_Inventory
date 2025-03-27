@@ -51,7 +51,6 @@ html{
   width: auto;
   display: flex;
   justify-content: start;
-  border: solid black;
 }
 .card {
   padding: 2em;
@@ -367,6 +366,27 @@ font-size: 20px;
   list-style-type: none;
   width: auto;
   margin-bottom: 20px;
+}
+.SaveBtnContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+.SaveBtn {
+  width: 400px;
+  height: auto;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  position: fixed;
+  bottom: 45px;
+  
+
+}
+.SaveBtn h1{
+  color: white;
 }
 
 /*

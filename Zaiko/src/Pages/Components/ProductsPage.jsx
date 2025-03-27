@@ -3,30 +3,45 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function ProductPage() {
-    const { location } = useParams();  // Get the location from the URL params
-    const [products, setProducts] = useState([]);  // State to store the products
+    const { location } = useParams();  
+    const [products, setProducts] = useState([]);  
 
     useEffect(() => {
-        // Fetch the products from the API
         fetch("http://developerdove.com/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
-                // Filter the products based on the location
                 const filteredProducts = data.products.filter(
                     (product) => product.location === location
                 );
-                setProducts(filteredProducts);  // Update the state with the filtered products
+                setProducts(filteredProducts);
             })
-            .catch(() => alert("No products found for this location"));  // Handle fetch errors
-    }, [location]);  // Run the effect whenever `location` changes
+            .catch(() => alert("Loading Products...."));
+    }, [location]);  
 
-    const decodedLocation = decodeURIComponent(location);  // this basically says if there are any special characters in the name just ignore them
+    const decodedLocation = decodeURIComponent(location);
 
+    // Function to handle quantity increment
+    const incrementQuantity = (index) => {
+        setProducts((prevProducts) => 
+            prevProducts.map((product, i) =>
+                i === index ? { ...product, quantity: product.quantity + 1 } : product
+            )
+        );
+    
+   
+}
+ //decrementing the quantity 
+    const DecrementQuantity = (index) => {
+        setProducts((prevProducts) => 
+            prevProducts.map((product, i) =>
+                i === index ? { ...product, quantity: product.quantity - 1 } : product
+            )
+        );
+    };
     return (
         <div className="productList">
             <div className="ProductHeader">
-                <h2><Link to="/Home">&lt;   {decodedLocation}</Link></h2>
-
+                <h2><Link to="/Home">&lt; {decodedLocation}</Link></h2>
                 <form action="">
                     <input type="text" placeholder="Search..." />
                 </form>
@@ -35,25 +50,40 @@ function ProductPage() {
             <ul>
                 {products.length > 0 ? (
                     products.map((product, index) => (
-                        <div className="productCard " key={product.id}>
+                        <div className="productCard" key={product.id}>
                             <h3>{product.name}</h3>
-                           {/**  <p><strong>Quantity:</strong>{product.quantity} 
-                            <strong>Location:</strong>{product.location}</p>*/}
                             <form className="EditQTY" action="">
-                                <button id="QTYBTN" type="button" >+</button>
-                                <input id="QTYField" type="number" placeholder={product.quantity} />
-                                <button id="QTYBTN" type="button">-</button>
+                                <button 
+                                    id="QTYBTN" 
+                                    type="button"
+                                    onClick={() => incrementQuantity(index)}>+</button>
+                                <input 
+                                    id="QTYField" 
+                                    type="number" 
+                                    value={product.quantity} 
+                                    readOnly
+                                />
+                                <button id="QTYBTN" type="button" onClick={()=> DecrementQuantity(index)}>-</button>
                             </form>
-                            
                         </div>
-                        
                     ))
                 ) : (
                     <p>No products available for this location.</p>  
                 )}
             </ul>
+            <div className="SaveBtnContainer">
+                <button className="SaveBtn">
+                    <h1>Save Changes</h1>
+                </button>   
+            </div>
+            
+            
+
         </div>
+
+      
     );
+    
 }
 
 export default ProductPage;

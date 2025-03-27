@@ -11,6 +11,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: rgba(8, 25, 59, 100);
+  --n-grey-1: rgba(243, 243, 243, 100);
+  --n-grey-2: rgba(231, 231, 231, 100);
+  --n-grey-3: rgba(198, 198, 198, 100);
+  --n-grey-4: rgba(145, 145, 145, 100);
+  --n-grey-5: rgba(119, 119, 119, 100);
+  --n-grey-6: rgba(94, 94, 94, 100);
+  --n-grey-7: rgba(71, 71, 71, 100);
+  --n-grey-8: rgba(48, 48, 48, 100);
+  --n-grey-9: rgba(13, 13, 13, 100);
+
 }
 a {
   font-weight: 500;

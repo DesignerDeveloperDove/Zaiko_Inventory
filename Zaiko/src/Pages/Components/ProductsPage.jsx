@@ -11,7 +11,6 @@ function ProductPage() {
         fetch("http://developerdove.com/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
-                // Filter the products based on the location
                 const filteredProducts = data.products.filter(
                     (product) => product.location === location
                 );

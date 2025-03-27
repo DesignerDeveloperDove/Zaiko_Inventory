@@ -35,7 +35,15 @@ function Los() {
 console.log(products);
     return (
         <>
-            <h1 className="Header">Locations</h1>
+            <div className="LocationNav">
+                <div className="FilterIcon">
+                    <img src="../src/assets/filter button icon.svg" alt=""/>
+                </div>
+                <h1 className="Header">Locations</h1>
+                <div className="ArrowIcon">
+                    <img src="../src/assets/arrow icon.svg" alt=""/>
+                </div>
+            </div>
             <div className="LocationTabs">
                 <ul>
                 {locationList.length > 0 ? (

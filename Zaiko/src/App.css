@@ -405,6 +405,22 @@ font-weight: bold;
   }
 }
 */
+.LocationNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.FilterIcon {
+  width: 70px;
+  height: auto;
+}
+
+.ArrowIcon {
+  width: 70px;
+  height: auto;
+}
 
 .OrderHistory {
   width: 100%;

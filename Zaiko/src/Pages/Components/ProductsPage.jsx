@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function ProductPage() {
     const { location } = useParams();  
@@ -71,6 +72,8 @@ function ProductPage() {
                     <p>No products available for this location.</p>  
                 )}
             </ul>
+
+            
             <div className="SaveBtnContainer">
                 <button className="SaveBtn">
                     <h1>Save Changes</h1>
@@ -78,7 +81,7 @@ function ProductPage() {
             </div>
             
             
-
+            <Footer />
         </div>
 
       

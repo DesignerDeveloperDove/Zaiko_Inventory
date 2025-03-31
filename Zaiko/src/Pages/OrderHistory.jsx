@@ -1,15 +1,27 @@
 import React from "react";
 import Footer from "./Components/Footer";
-
+import { Link } from "react-router";
 function OrderHistory() {
     const data = [
         { name: "Anom", total: "Male" },
         { name: "Megha", total: "Female" },
         { name: "Subham", total: "Male" },
+        { name: "Subham", total: "Male" },
+
     ];
 
     return (
+        
+        <div className="productList">
+            <div className="ProductHeader">
+                <h2><Link to="/Home">&lt; Count History</Link></h2>
+                <form action="">
+                    <input type="text" placeholder="Search..." />
+                </form>
+            </div>
+
         <div className="OrderHistory">
+            
             <h2>Order History</h2>
             <p>Total Items: {data.length}</p>
 
@@ -31,7 +43,7 @@ function OrderHistory() {
             </table>
             <Footer />
         </div>
-        
+        </div> 
     );
 }
 

@@ -50,6 +50,7 @@ html{
   width: auto;
   display: flex;
   justify-content: start;
+
 }
 .card {
   padding: 2em;
@@ -195,11 +196,11 @@ footer {
   width: 60px;
 }
 .ProductHeader{
-  width: 95vw; 
+  width: 100vw; 
   height: 30%;
   background-color: #f3f3f3;
   margin-bottom: 12px;
-  filter: drop-shadow(0 4px 6px #100e0e1b);
+  filter: drop-shadow(0 4px 6px #100e0e50);
   ;
 }
 .ProductHeader form input{
@@ -357,7 +358,7 @@ font-weight: bold;
 /* the styles for LocationTabs */
 .LocationTabs {
   width: auto;
-  padding: 0px 6%;
+  padding: 140px 6%;
 }
 
 .Location-list {
@@ -387,9 +388,7 @@ font-weight: bold;
   border: none;
   border-radius: 15px;
   position: fixed;
-  bottom: 45px;
-  
-
+  bottom: 115px;
 }
 .SaveBtn h1{
   color: white;
@@ -412,6 +411,14 @@ font-weight: bold;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100vw;
+  top: none;
+  z-index: 1000;
+  background-color: #f3f3f3;
+  margin-left: -10px;
+  scroll-behavior: smooth;
 }
 
 .FilterIcon {

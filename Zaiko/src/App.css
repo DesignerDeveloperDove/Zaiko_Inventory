@@ -363,17 +363,18 @@ font-weight: bold;
 
 .Location-list {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .LocationTabs ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
   width: auto;
   margin-bottom: 20px;
 }
+
 .SaveBtnContainer{
   display: flex;
   flex-direction: row;

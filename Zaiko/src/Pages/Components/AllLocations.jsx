@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import { data, Link } from "react-router-dom";
 import { lazy } from "react";
 import DataInfo from "./Data";
-function Los() {
+function Los({items}) {
     const [products, setProducts] = useState([]); // State for all products
     const [walkInProducts, setWalkInProducts] = useState([]); // State for filtered "Walk-In" products
     const [locationList, setLocationList] = useState([]); // This stores a list of unique locations
@@ -33,16 +33,31 @@ function Los() {
     }, [products]);
 
 console.log(products);
+
+   
     return (
         <>
             <div className="LocationNav">
-                <div className="FilterIcon">
-                    <img src="../src/assets/filter button icon.svg" alt=""/>
-                </div>
+                <button className="Dropdown">
+                    <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
+                </button>
                 <h1 className="Header">Locations</h1>
                 <div className="ArrowIcon">
                     <img src="../src/assets/arrow icon.svg" alt=""/>
                 </div>
+            </div>
+            <div className="LocationNavOpen">
+                <button className="Dropdown" onClick={FilterDrop}>
+                    <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
+                </button>
+                <h1 className="Header">Locations</h1>
+                <div className="ArrowIcon">
+                    <img src="../src/assets/arrow icon.svg" alt=""/>
+                </div>
+                <ul>
+                    <li>Test</li>
+                    <li>Test</li>
+                </ul>
             </div>
             <div className="LocationTabs">
                 <ul>
@@ -90,7 +105,7 @@ export default Los;
  */
 
                     
-                {/*<h2> <Link to="/Home">&lt;Walk-In Freezer Products   </Link></h2>*/}
+                /*<h2> <Link to="/Home">&lt;Walk-In Freezer Products   </Link></h2>*/
                // <div className="Location-list">
                // {walkInProducts.length > 0 ? (
                  //   walkInProducts.map((product) => {
@@ -105,4 +120,4 @@ export default Los;
                // ) : (
                  //   <p>No products found in Walk-In.</p>
                // )}
-            //</div>** */}
+            //</div>** */

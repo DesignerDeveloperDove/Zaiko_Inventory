@@ -8,7 +8,7 @@ function ProductPage() {
     const [products, setProducts] = useState([]);  
 
     useEffect(() => {
-        fetch("http://developerdove.com/ZaikoApp/")
+        fetch("http://localhost:8001")
             .then((res) => res.json())
             .then((data) => {
                 const filteredProducts = data.products.filter(

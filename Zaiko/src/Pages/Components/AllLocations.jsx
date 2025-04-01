@@ -33,12 +33,15 @@ function Los({items}) {
     }, [products]);
 
 console.log(products);
-
+ 
+function FilterDrop (){
+    alert('works');
+}
    
     return (
         <>
             <div className="LocationNav">
-                <button className="Dropdown">
+                <button className="Dropdown" onClick={FilterDrop}>
                     <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
                 </button>
                 <h1 className="Header">Locations</h1>

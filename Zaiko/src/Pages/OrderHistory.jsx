@@ -5,7 +5,7 @@ function OrderHistory() {
     const [logs, setLogs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8001")
+        fetch("http://developerdove.com/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched data:", data);

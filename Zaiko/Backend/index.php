@@ -20,7 +20,7 @@ if ($conn->connect_error) {
     exit();
 }
 
-$Data = ["users" => [], "products" => []];
+$Data = ["users" => [], "products" => [] ,  "Employee" => [], "InventoryLog" => []];
 
 // Fetch Users
 $sqlUsers = "SELECT * FROM Users";
@@ -50,6 +50,38 @@ if ($resultProducts && $resultProducts->num_rows > 0) {
         ];
     }
 }
+
+
+// Fetch Employees
+$sqlUsers = "SELECT * FROM Employee";
+$resultUsers = $conn->query($sqlUsers);
+
+if ($resultUsers && $resultUsers->num_rows > 0) {
+    while ($row = $resultUsers->fetch_assoc()) {
+        $Data["Employee"][] = [
+            "EmpID" => $row["EmpID"] ?? null,
+            "FirstName" => $row["FirstName"] ?? null,
+            "LastName" => $row["LastName"] ?? null,
+            "EmpPosition" => $row["EmpPosition"] ?? null,
+            "StoreNum" => $row["StoreNum"]
+        ];
+    }
+}
+//Fetch logs
+$sqlUsers = "SELECT * FROM InventoryLog";
+$resultUsers = $conn->query($sqlUsers);
+
+if ($resultUsers && $resultUsers->num_rows > 0) {
+    while ($row = $resultUsers->fetch_assoc()) {
+        $Data["InventoryLog"][] = [
+            "LogNum" => $row["LogNum"] ?? null,
+            "EmpID" => $row["EmpID"] ?? null,
+            "StoreNum" => $row["StoreNum"]
+        ];
+    }
+}
+
+
 
 $conn->close();
 

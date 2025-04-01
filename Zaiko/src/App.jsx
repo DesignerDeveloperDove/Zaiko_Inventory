@@ -16,6 +16,9 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/location/:location" element={<ProductPage />} />
       <Route path="/OrderHistory.jsx" element={<OrderHistory />} />
+      <Route path="/order-history/:LogData" component={OrderHistory} />
+
+
       </Routes>
   </Router>
   )

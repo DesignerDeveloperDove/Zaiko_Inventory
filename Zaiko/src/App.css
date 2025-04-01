@@ -492,7 +492,7 @@ th, td {
 }
 
 th {
-  background-color: #4CAF50;
+  background-color: #011f5b;
   color: white;
   text-transform: uppercase;
 }
@@ -504,4 +504,8 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
   cursor: pointer;
+}
+.OrderHistoryTable td{
+  color: #011f5b;
+  font-weight: bolder;
 }

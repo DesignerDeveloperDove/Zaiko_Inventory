@@ -5,6 +5,7 @@ import LogIn from "./Pages/LogIn";
 import ProductPage from "./Pages/Components/ProductsPage";
 import OrderHistory from "./Pages/OrderHistory";
 import './App.css'
+import ProfilePage from "./Pages/ProfilePage";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/location/:location" element={<ProductPage />} />
       <Route path="/OrderHistory.jsx" element={<OrderHistory />} />
-      <Route path="/order-history/:LogData" component={OrderHistory} />
+      <Route path="/ProfilePage.jsx" element={<ProfilePage />} />
 
 
       </Routes>

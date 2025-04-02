@@ -8,7 +8,7 @@ function Footer(){
                 <div className="FooterContent">
                 <Link to="/OrderHistory.jsx" id="Option"><img   src="../src/assets/inventory icon.svg" alt=""/>  </Link>
                 <img id="Option" src="../src/assets/reports icon.svg" alt="" />
-                <img id="Option" src="../src/assets/profile icon.svg" alt="" />
+                <Link to="/ProfilePage.jsx"> <img id="Option" src="../src/assets/profile icon.svg" alt="" /> </Link>
 
                 </div>
                 

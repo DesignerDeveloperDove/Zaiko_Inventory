@@ -39,7 +39,14 @@ console.log(products);
     return (
         <>
             <div className="LocationNav">
-            </div>
+                 <button className="Dropdown">
+                     <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
+                 </button>
+                 <h1 className="Header">Locations</h1>
+                 <div className="ArrowIcon">
+                     <img src="../src/assets/arrow icon.svg" alt=""/>
+                 </div>
+             </div>
             <div className="LocationTabs">
                 <ul>
                 {locationList.length > 0 ? (

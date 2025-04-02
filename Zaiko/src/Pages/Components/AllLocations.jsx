@@ -38,27 +38,8 @@ console.log(products);
    
     return (
         <>
-            <div className="dropdown">
-                <button onClick={toggleDropdown}>
-                    Select Filters {isOpen ? '▲' : '▼'}
-                </button>
-                {isOpen && (
-                    <div className="dropdown-list">
-                    {options.map((option) => (
-                        <label key={option}>
-                        <input
-                            type="checkbox"
-                            value={option}
-                            checked={selectedOptions.includes(option)}
-                            onChange={() => handleOptionChange(option)}
-                        />
-                        {option}
-                        </label>
-                    ))}
-                    <button onClick={handleFilter}>Apply Filters</button>
-                    </div>
-                )}
-                </div>
+            <div className="LocationNav">
+            </div>
             <div className="LocationTabs">
                 <ul>
                 {locationList.length > 0 ? (

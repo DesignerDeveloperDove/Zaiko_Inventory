@@ -34,34 +34,31 @@ function Los({items}) {
 
 console.log(products);
  
-function FilterDrop (){
-    alert('works');
-}
+
    
     return (
         <>
-            <div className="LocationNav">
-                <button className="Dropdown" onClick={FilterDrop}>
-                    <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
+            <div className="dropdown">
+                <button onClick={toggleDropdown}>
+                    Select Filters {isOpen ? '▲' : '▼'}
                 </button>
-                <h1 className="Header">Locations</h1>
-                <div className="ArrowIcon">
-                    <img src="../src/assets/arrow icon.svg" alt=""/>
+                {isOpen && (
+                    <div className="dropdown-list">
+                    {options.map((option) => (
+                        <label key={option}>
+                        <input
+                            type="checkbox"
+                            value={option}
+                            checked={selectedOptions.includes(option)}
+                            onChange={() => handleOptionChange(option)}
+                        />
+                        {option}
+                        </label>
+                    ))}
+                    <button onClick={handleFilter}>Apply Filters</button>
+                    </div>
+                )}
                 </div>
-            </div>
-            <div className="LocationNavOpen">
-                <button className="Dropdown" onClick={FilterDrop}>
-                    <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
-                </button>
-                <h1 className="Header">Locations</h1>
-                <div className="ArrowIcon">
-                    <img src="../src/assets/arrow icon.svg" alt=""/>
-                </div>
-                <ul>
-                    <li>Test</li>
-                    <li>Test</li>
-                </ul>
-            </div>
             <div className="LocationTabs">
                 <ul>
                 {locationList.length > 0 ? (

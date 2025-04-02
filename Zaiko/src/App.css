@@ -276,8 +276,10 @@ footer {
   color: #011f5b;
   font-weight: bold;
 }
+
 .productList{
   background-color: #e7e7e7;
+  width: fit-content;
 }
 .productList h2 {
   font-size: 3vw;
@@ -422,9 +424,29 @@ font-weight: bold;
   scroll-behavior: smooth;
 }
 
+.LocationNavOpen {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100vw;
+  top: none;
+  z-index: 1000;
+  background-color: #f3f3f3;
+  margin-left: -10px;
+  scroll-behavior: smooth;
+  display: none;
+}
+
 .FilterIcon {
   width: 70px;
   height: auto;
+}
+
+.Dropdown{
+  border-color: transparent;
 }
 
 .ArrowIcon {

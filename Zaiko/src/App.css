@@ -531,6 +531,14 @@ tr:hover {
 }
 
 /* profile page */
+.PFP{
+  width: 200px;
+  height: 200px;
+  background-color: #fdfdfd;
+  margin-top: 5%;
+  margin-right: 15%;
+  border-radius: 100%;
+}
 .ProfileHeader{
   width: 98vw;
   background-color: #011f5b;
@@ -543,7 +551,11 @@ color: #fffcfc;
 }
 .ProfileHeader h3{
   color: #fffcfc;
+  font-weight: 200;
   }
+  .ProfileHeader h4{
+    color: #fffcfc;
+    }
 #PFHInfo{
   flex-direction: column;
   justify-content: center;
@@ -571,11 +583,30 @@ color: #fffcfc;
   color: #f8f8f8;
   width: 100%;
   text-align: left;
+  flex-direction: column;
   justify-content: center;
+  margin-top: 40px;
+  font-family: inter;
+  
 }
 .dropdown2 h1{
   color: white;
+}
 
+.LogOut {
+  width: 400px;
+  height: auto;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  position: fixed;
+  bottom: 115px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.LogOut h1{
+color: white;
 }
 
 .formFilterBar{

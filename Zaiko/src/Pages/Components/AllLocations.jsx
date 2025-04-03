@@ -71,7 +71,7 @@ const toggleDropdown = () => {
                     </button>
                     {isOpen && (
                         <ul className="dropdown-menu">
-                        {options?.map((option) => (
+                        {options.map((option) => (
                             <li key={option} onClick={() => handleOptionClick(option)}>
                             {option}
                             </li>

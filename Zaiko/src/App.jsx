@@ -18,6 +18,8 @@ function App() {
       <Route path="/location/:location" element={<ProductPage />} />
       <Route path="/OrderHistory.jsx" element={<OrderHistory />} />
       <Route path="/ProfilePage.jsx" element={<ProfilePage />} />
+
+
       </Routes>
   </Router>
   )

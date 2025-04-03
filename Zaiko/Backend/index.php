@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
 
-    if (!isset($data["name"]) || !isset($data["location"]) || !isset($data["quantity"])) {
+    if (!isset($data["name"]) || !isset($data["location"]) || !isset($data["quantity"]) || !isset($data["HouseLocation"])) {
         echo json_encode(["error" => "Missing required fields"]);
         exit();
     }
@@ -34,8 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $conn->real_escape_string($data["name"]);
     $location = $conn->real_escape_string($data["location"]);
     $quantity = intval($data["quantity"]); // Convert to integer for safety
+    $HouseLocation = $conn->real_escape_string($data["HouseLocation"]);
 
-    $sql = "INSERT INTO Products (ProdName, Location, Quantity) VALUES ('$name', '$location', $quantity)";
+
+    $sql = "INSERT INTO Products (ProdName, Location, Quantity) VALUES ('$name', '$location', $quantity, '$HouseLocation')";
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["success" => "Product added successfully"]);
@@ -56,7 +58,10 @@ if ($resultProducts && $resultProducts->num_rows > 0) {
             "id" => intval($row["ProdId"]),
             "name" => $row["ProdName"] ?? null,
             "location" => $row["Location"] ?? null,
-            "quantity" => intval($row["Quantity"])
+            "quantity" => intval($row["Quantity"]),
+            "HouseLocation" => $row["HouseLocation"] ?? null
+
+            
         ];
     }
 }

@@ -70,15 +70,30 @@ function Los({ options, onSelect }) {
                         </button>
                     </div>
                     {isOpen && (
-                        <ul className="dropdown-menu">
-                        {options?.map((option) => (
-                            <li key={option} onClick={() => handleOptionClick(option)}>
-                            {option}
-                            </li>
-                        ))}
-                        </ul>
+                        <div>
+                            <ul className="dropdown-menu">
+                                {options?.map((option) => (
+                                    <li key={option} onClick={() => handleOptionClick(option)}>
+                                        {option}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="FilterOverLay" ref={filterOverlayRef}>
+                                <div>
+                                    <input 
+                                        type="checkbox" 
+                                    /> 
+                                    <h2>FOH Locations</h2>
+                                </div>
+                                <div>
+                                    <input 
+                                        type="checkbox" 
+                                    /> 
+                                    <h2>BOH Locations</h2>
+                                </div>
+                            </div>
+                        </div>
                     )}
-                    </div>
                 </div>
                 <h1 className="Header">Locations</h1>
                 <div className="ArrowIcon">

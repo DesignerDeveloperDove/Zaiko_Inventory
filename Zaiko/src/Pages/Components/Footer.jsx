@@ -6,9 +6,9 @@ function Footer(){
         <footer id="Footer">
             <div>
                 <div className="FooterContent">
-                <Link to="/OrderHistory.jsx" id="Option"><img   src="../src/assets/inventory icon.svg" alt=""/>  </Link>
-                <img id="Option" src="../src/assets/reports icon.svg" alt="" />
-                <Link to="/ProfilePage.jsx"> <img id="Option" src="../src/assets/profile icon.svg" alt="" /> </Link>
+                <Link to="/home" id="Option"> <img   src="../src/assets/inventory icon.svg" alt=""/>  </Link>
+                <Link to="/OrderHistory.jsx" id="Option"> <img id="Option" src="../src/assets/reports icon.svg" alt="" /></Link>
+                <Link to="/ProfilePage.jsx" id="Option"> <img  src="../src/assets/profile icon.svg" alt="" /> </Link>
 
                 </div>
                 

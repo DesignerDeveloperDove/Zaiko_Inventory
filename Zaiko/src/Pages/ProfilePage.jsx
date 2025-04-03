@@ -17,7 +17,6 @@ function ProfilePage() {
                 const emp = data.Employee.find(emp => emp.EmpID === "2") || {};
                 setEmployee(emp);
             })
-            .catch(() => alert("Loading Order History..."));
     }, []);
     return (
         <>
@@ -64,8 +63,8 @@ function ProfilePage() {
                                     </tr>
                                 )) : (
                                     <tr>
-                                        <td colSpan="3">No logs available.</td>
-                                    </tr>
+                                <p><img src="ZaikoLogo.jpg" alt="" />.</p>
+                        </tr>
                                 )}
                             </tbody>
                         </table>

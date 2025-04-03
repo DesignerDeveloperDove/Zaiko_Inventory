@@ -1,11 +1,9 @@
 <?php
 
-
-
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json");
 
 $servername = "192.64.150.136";
 $username = "further2_User1";
@@ -13,51 +11,61 @@ $password = "001011992Nd!";
 $database = "further2_ZaikoDB";
 
 $conn = new mysqli($servername, $username, $password, $database);
-$conn->set_charset("utf8mb4"); // Ensure UTF-8 encoding
+$conn->set_charset("utf8mb4");
 
 if ($conn->connect_error) {
     echo json_encode(["error" => "Connection failed: " . $conn->connect_error]);
     exit();
 }
 
-$Data = ["users" => [], "products" => [] ,  "Employee" => [], "InventoryLog" => []];
-
-// Fetch Users
-$sqlUsers = "SELECT * FROM Users";
-$resultUsers = $conn->query($sqlUsers);
-
-if ($resultUsers && $resultUsers->num_rows > 0) {
-    while ($row = $resultUsers->fetch_assoc()) {
-        $Data["users"][] = [
-            "id" => $row["id"] ?? null,
-            "username" => $row["Username"] ?? null,
-            "email" => $row["email"] ?? null
-        ];
-    }
+// Handle OPTIONS request for CORS preflight this is a temp thing
+if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
+    exit();
 }
 
-// Fetch Products
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    if (!isset($data["name"]) || !isset($data["location"]) || !isset($data["quantity"])) {
+        echo json_encode(["error" => "Missing required fields"]);
+        exit();
+    }
+
+    $name = $conn->real_escape_string($data["name"]);
+    $location = $conn->real_escape_string($data["location"]);
+    $quantity = intval($data["quantity"]); // Convert to integer for safety
+
+    $sql = "INSERT INTO Products (ProdName, Location, Quantity) VALUES ('$name', '$location', $quantity)";
+
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode(["success" => "Product added successfully"]);
+    } else {
+        echo json_encode(["error" => "Failed to add product: " . $conn->error]);
+    }
+    exit();
+}
+
+$Data = ["users" => [], "products" => [], "Employee" => [], "InventoryLog" => []];
+
 $sqlProducts = "SELECT * FROM Products";
 $resultProducts = $conn->query($sqlProducts);
 
 if ($resultProducts && $resultProducts->num_rows > 0) {
     while ($row = $resultProducts->fetch_assoc()) {
         $Data["products"][] = [
-            "id" => intval($row["ProdId"]), // Convert to integer for consistency
+            "id" => intval($row["ProdId"]),
             "name" => $row["ProdName"] ?? null,
             "location" => $row["Location"] ?? null,
-            "quantity" => intval($row["Quantity"]) // Convert quantity to integer
+            "quantity" => intval($row["Quantity"])
         ];
     }
 }
 
+$sqlEmployees = "SELECT * FROM Employee";
+$resultEmployees = $conn->query($sqlEmployees);
 
-// Fetch Employees
-$sqlUsers = "SELECT * FROM Employee";
-$resultUsers = $conn->query($sqlUsers);
-
-if ($resultUsers && $resultUsers->num_rows > 0) {
-    while ($row = $resultUsers->fetch_assoc()) {
+if ($resultEmployees && $resultEmployees->num_rows > 0) {
+    while ($row = $resultEmployees->fetch_assoc()) {
         $Data["Employee"][] = [
             "EmpID" => $row["EmpID"] ?? null,
             "FirstName" => $row["FirstName"] ?? null,
@@ -67,12 +75,12 @@ if ($resultUsers && $resultUsers->num_rows > 0) {
         ];
     }
 }
-//Fetch logs
-$sqlUsers = "SELECT * FROM InventoryLog";
-$resultUsers = $conn->query($sqlUsers);
 
-if ($resultUsers && $resultUsers->num_rows > 0) {
-    while ($row = $resultUsers->fetch_assoc()) {
+$sqlLogs = "SELECT * FROM InventoryLog";
+$resultLogs = $conn->query($sqlLogs);
+
+if ($resultLogs && $resultLogs->num_rows > 0) {
+    while ($row = $resultLogs->fetch_assoc()) {
         $Data["InventoryLog"][] = [
             "LogNum" => $row["LogNum"] ?? null,
             "EmpID" => $row["EmpID"] ?? null,
@@ -81,19 +89,13 @@ if ($resultUsers && $resultUsers->num_rows > 0) {
     }
 }
 
-
-
 $conn->close();
 
-// Encode JSON and return it
-$FinalData = json_encode($Data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-if ($FinalData === false) {
-    echo json_encode(["error" => "JSON encoding failed: " . json_last_error_msg()]);
-    exit();
-}
-
-echo $FinalData;
+// Return JSON response
+echo json_encode($Data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 exit();
+
+
 
 
 

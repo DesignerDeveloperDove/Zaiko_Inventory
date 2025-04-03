@@ -2,15 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import DataInfo from "./Data";
-function Los({options, onSelect}) {
+
+function Los({ options, onSelect }) {
     const [products, setProducts] = useState([]); // State for all products
-    const [walkInProducts, setWalkInProducts] = useState([]); // State for filtered "Walk-In" products
     const [locationList, setLocationList] = useState([]); // This stores a list of unique locations
-    const LocationNames = []; // Stores locations dynamically
-    
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-    
+    const filterOverlayRef = useRef(null); // Ref for Filter Overlay
 
     // fetch products from backend
     useEffect(() => {
@@ -36,61 +34,82 @@ function Los({options, onSelect}) {
         setLocationList(locations);
     }, [products]);
 
-console.log(products);
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
 
-const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleOptionClick = (option) => {
-    onSelect(option);
-    setIsOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleOptionClick = (option) => {
+        onSelect(option);
         setIsOpen(false);
-      }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-  
-   
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // this should nly close if the click is outside both the dropdown and the FilterOverLay
+            if (
+                dropdownRef.current && !dropdownRef.current.contains(event.target) &&
+                filterOverlayRef.current && !filterOverlayRef.current.contains(event.target)
+            ) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
         <>
             <div className="LocationNav">
                 <div>
                     <div className="dropdown" ref={dropdownRef}>
-                    <button onClick={toggleDropdown}>
-                        <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
-                    </button>
-                    {isOpen && (
-                        <ul className="dropdown-menu">
-                        {options?.map((option) => (
-                            <li key={option} onClick={() => handleOptionClick(option)}>
-                            {option}
-                            </li>
-                        ))}
-                        </ul>
-                    )}
+                        <button onClick={toggleDropdown}>
+                            <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt="" />
+                        </button>
                     </div>
+                    {isOpen && (
+                        <div>
+                            <ul className="dropdown-menu">
+                                {options?.map((option) => (
+                                    <li key={option} onClick={() => handleOptionClick(option)}>
+                                        {option}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="FilterOverLay" ref={filterOverlayRef}>
+                                <div>
+                                    <input 
+                                        type="checkbox" 
+                                    /> 
+                                    <h2>FOH Locations</h2>
+                                </div>
+                                <div>
+                                    <input 
+                                        type="checkbox" 
+                                    /> 
+                                    <h2>BOH Locations</h2>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <h1 className="Header">Locations</h1>
                 <div className="ArrowIcon">
-                    <img src="../src/assets/arrow icon.svg" alt=""/>
+                    <img src="../src/assets/arrow icon.svg" alt="" />
                 </div>
             </div>
+
             <div className="LocationTabs">
                 <ul>
                     {locationList.length > 0 ? (
                         locationList.map((location, index) => (
-                            <div key={index} className="LocationSquares"
-                                style={{ backgroundColor: Tabcolors[index % Tabcolors.length] }}>
+                            <div
+                                key={index}
+                                className="LocationSquares"
+                                style={{ backgroundColor: Tabcolors[index % Tabcolors.length] }}
+                            >
                                 <Link to={`/location/${encodeURIComponent(location)}`}>
                                     <button>
                                         <strong>{location}</strong>
@@ -102,7 +121,9 @@ const toggleDropdown = () => {
                             </div>
                         ))
                     ) : (
-                        <p>No locations found.</p>
+                        <p>
+                            <img src="ZaikoLogo.jpg" alt="" />.
+                        </p>
                     )}
                 </ul>
             </div>

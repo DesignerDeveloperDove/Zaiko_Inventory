@@ -539,23 +539,44 @@ tr:hover {
   margin-right: 15%;
   border-radius: 100%;
 }
-.ProfileHeader{
-  width: 98vw;
-  background-color: #011f5b;
-  height: 304px;
+
+.ProductHeader {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
+
+.nameArrow{
+  display: inline;
+  align-items: last baseline;
+}
+
+.HeaderTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.HeaderTop img {
+  width: 40px;
+  height: 40px;
+}
+
 .ProfileHeader h1{
 color: #fffcfc;
 }
+
 .ProfileHeader h3{
   color: #fffcfc;
   font-weight: 200;
-  }
-  .ProfileHeader h4{
+}
+
+.ProfileHeader h4{
     color: #fffcfc;
-    }
+}
+
 #PFHInfo{
   flex-direction: column;
   justify-content: center;

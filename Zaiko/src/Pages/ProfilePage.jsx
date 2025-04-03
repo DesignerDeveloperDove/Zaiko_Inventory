@@ -20,13 +20,17 @@ function ProfilePage() {
             .catch(() => alert("Loading Order History..."));
     }, []);
     return (
+        <>
         <div className="productList">
                 <div className="ProfileHeader">
+                <div className="PFP">
+                        <p></p>
+                    </div>
                     <div id="PFHInfo">
                         <h1>{employee.FirstName} {employee.LastName}</h1>
                         <h3>{employee.EmpPosition}</h3>
                         <h3>Employee ID: {employee.EmpID}</h3>  
-                        <h3>Store Number: {employee.StoreNum}</h3>
+                        <h4>Store Number: {employee.StoreNum}</h4>
                                      
                     </div>
 
@@ -65,10 +69,25 @@ function ProfilePage() {
                                 )}
                             </tbody>
                         </table>
+
+
                     </div>
+                    
                 )}
             <Footer />
         </div>
+
+
+        <div className="SaveBtnContainer">
+               <Link to="/"> 
+                    <button className="LogOut"  style={{ display: isOpen ? "none" : "block" }}>
+                        <h1>Log Out</h1>
+                    </button>   
+                </Link>
+            </div>
+        </>
+        
+
     );
 }
 

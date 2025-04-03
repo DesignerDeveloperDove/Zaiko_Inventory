@@ -53,30 +53,15 @@ function Los({ items }) {
 
     return (
         <>
-            <div className="dropdown">
-                <button onClick={toggleDropdown}>
-                    Select Filters {isOpen ? '▲' : '▼'}
-                </button>
-                {isOpen && (
-                    <div className="dropdown-list">
-                        {options.map((option) => (
-                            <label key={option}>
-                                <input
-                                    type="checkbox"
-                                    value={option}
-                                    checked={selectedOptions.includes(option)}
-                                    onChange={() => handleOptionChange(option)}
-                                />
-                                {option}
-                            </label>
-                        ))}
-                        <button onClick={handleFilter}>Apply Filters</button>
-                    </div>
-                )}
-            </div>
             <div className="LocationNav">
-            </div>
-
+                 <button className="Dropdown">
+                     <img className="FilterIcon" src="../src/assets/filter button icon.svg" alt=""/>
+                 </button>
+                 <h1 className="Header">Locations</h1>
+                 <div className="ArrowIcon">
+                     <img src="../src/assets/arrow icon.svg" alt=""/>
+                 </div>
+             </div>
             <div className="LocationTabs">
                 <ul>
                     {locationList.length > 0 ? (

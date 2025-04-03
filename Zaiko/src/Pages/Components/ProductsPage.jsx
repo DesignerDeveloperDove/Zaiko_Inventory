@@ -72,7 +72,7 @@ function ProductPage() {
                         </div>
                     ))
                 ) : (
-                    <p>No products available for this location.</p>  
+                    <p>Loading Product....</p>  
                 )}
             </ul>
 

@@ -608,6 +608,7 @@ color: #fffcfc;
 .LogOut h1{
 color: white;
 }
+<<<<<<< HEAD
 /*OVERLAY Filter*/
 .LocationNav {
   position: relative;
@@ -642,3 +643,25 @@ color: white;
 }
 
 
+=======
+
+.formFilterBar{
+  margin: 19px;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  border-color: #333;
+}
+
+.countFilter{
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: large;
+}
+
+.formFilterBar :active{
+  color: rgba(211, 123, 0, 100);
+  border-color: rgba(211, 123, 0, 100);
+}
+>>>>>>> 9e67966e6814fba7f4c00c82de2f20e8fefe2e6f

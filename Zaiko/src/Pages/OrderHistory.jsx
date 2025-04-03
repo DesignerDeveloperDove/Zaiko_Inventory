@@ -20,10 +20,10 @@ function OrderHistory() {
             <h2><Link to="/Home">&lt; Count History</Link></h2>
 
                 <h2>Order History</h2>
-                <form>
-                    <button>Newest to oldest</button>
-                    <button>Oldest to Newest </button>
-                    <button>Name</button>
+                <form className="formFilterBar">
+                    <button className="countFilter">Newest to oldest</button>
+                    <button className="countFilter">Oldest to Newest</button>
+                    <button className="countFilter">Name</button>
 
                 </form>
             </div>

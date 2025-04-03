@@ -22,7 +22,7 @@ function OrderHistory() {
                 <h2>Order History</h2>
                 <form className="formFilterBar">
                     <button className="countFilter">Newest to oldest</button>
-                    <button className="countFilter">Oldest to Newest </button>
+                    <button className="countFilter">Oldest to Newest</button>
                     <button className="countFilter">Name</button>
 
                 </form>

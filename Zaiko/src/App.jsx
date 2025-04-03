@@ -6,6 +6,7 @@ import ProductPage from "./Pages/Components/ProductsPage";
 import OrderHistory from "./Pages/OrderHistory";
 import './App.css'
 import ProfilePage from "./Pages/ProfilePage";
+import Dropdown from "./Pages/Components/Dropdown";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/location/:location" element={<ProductPage />} />
       <Route path="/OrderHistory.jsx" element={<OrderHistory />} />
       <Route path="/ProfilePage.jsx" element={<ProfilePage />} />
+      <Route path="/Dropdown.jsx" element={<Dropdown />} />
 
 
       </Routes>

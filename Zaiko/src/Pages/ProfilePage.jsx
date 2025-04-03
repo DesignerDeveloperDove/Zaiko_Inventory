@@ -1,62 +1,72 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./Components/Footer";
 import { Link } from "react-router";
+
 function ProfilePage() {
     const [logs, setLogs] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [employee, setEmployee] = useState({ EmpID: "", FirstName: "", LastName: "", EmpPosition: "", StoreNum: "" });
 
     useEffect(() => {
         fetch("http://developerdove.com/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched data:", data);
-                setLogs(data.InventoryLog); // Set the InventoryLog data to state
+                const filteredLogs = data.InventoryLog.filter(log => log.EmpID === "2");
+                setLogs(filteredLogs);
+                const emp = data.Employee.find(emp => emp.EmpID === "2") || {};
+                setEmployee(emp);
             })
             .catch(() => alert("Loading Order History..."));
     }, []);
-
     return (
         <div className="productList">
-            <div className="ProductHeader">
-            <h2><Link to="/Home">&lt; HOME</Link></h2>
+                <div className="ProfileHeader">
+                    <div id="PFHInfo">
+                        <h1>{employee.FirstName} {employee.LastName}</h1>
+                        <h3>{employee.EmpPosition}</h3>
+                        <h3>Employee ID: {employee.EmpID}</h3>  
+                        <h3>Store Number: {employee.StoreNum}</h3>
+                                     
+                    </div>
 
-                <h2>Order History</h2>
-                <form>
-                    <button>Newest to oldest</button>
-                    <button>Oldest to Newest </button>
-                    <button>Name</button>
-
-                </form>
-            </div>
+                </div>
             
 
-            <div className="OrderHistoryTable">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Log Number</th>
-                            <th>Employee ID</th>
-                            <th>Store Number</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {logs.length > 0 ? (
-                            logs.map((log, index) => (
-                                <tr key={index}>
-                                    <td>{log.LogNum}</td>
-                                    <td>{log.EmpID}</td>
-                                    <td>{log.StoreNum}</td>
-                                </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td colSpan="5"><p>No logs available.</p></td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            </div>
+            <div className="dropdown2">
+                <button onClick={() => setIsOpen(!isOpen)}>
+                    <div className="BtnInfo">
+                    <h2>My Count History</h2>  <h1>{isOpen ? '▲' : '▼'}</h1>
+                    </div>
+                </button>
+                </div>
 
+                {isOpen && (
+                    <div className="OrderHistoryTable">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Log Number</th>
+                                    <th>Employee ID</th>
+                                    <th>Store Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {logs.length ? logs.map((log, index) => (
+                                    <tr key={index}>
+                                        <td>{log.LogNum}</td>
+                                        <td>{log.EmpID}</td>
+                                        <td>{log.StoreNum}</td>
+                                    </tr>
+                                )) : (
+                                    <tr>
+                                        <td colSpan="3">No logs available.</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             <Footer />
         </div>
     );

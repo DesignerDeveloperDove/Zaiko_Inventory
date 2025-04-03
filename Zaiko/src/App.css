@@ -509,3 +509,51 @@ tr:hover {
   color: #011f5b;
   font-weight: bolder;
 }
+
+/* profile page */
+.ProfileHeader{
+  width: 98vw;
+  background-color: #011f5b;
+  height: 304px;
+  display: flex;
+  justify-content: center;
+}
+.ProfileHeader h1{
+color: #fffcfc;
+}
+.ProfileHeader h3{
+  color: #fffcfc;
+  }
+#PFHInfo{
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  justify-self: center;
+  
+}
+.BtnInfo{
+  display: flex;
+  width: auto;
+  width: 90vw;
+
+}
+.dropdown2{
+  width: auto;
+  background-color: #284070;
+  
+}
+.dropdown2 button{
+  background-color: #00000000;
+  border: none;
+
+}
+.dropdown2 h2{
+  color: #f8f8f8;
+  width: 100%;
+  text-align: left;
+  justify-content: center;
+}
+.dropdown2 h1{
+  color: white;
+
+}

@@ -42,7 +42,10 @@ function ProductPage() {
     return (
         <div className="productList">
             <div className="ProductHeader">
-                <h2><Link to="/Home">&lt; {decodedLocation}</Link></h2>
+                <div className="HeaderTop">
+                    <div><Link to="/Home">&lt; {decodedLocation}</Link></div>
+                    <img src="../src/assets/edit icon.svg" alt="" />
+                </div>
                 <form action="">
                     <input type="text" placeholder="Search..." />
                 </form>

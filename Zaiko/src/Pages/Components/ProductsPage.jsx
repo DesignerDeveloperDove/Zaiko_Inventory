@@ -56,13 +56,33 @@ function ProductPage() {
     };
 
     // Handle Save: Update the product and close the editor
-    const handleSave = () => {
-        setProducts((prevProducts) =>
-            prevProducts.map((product) =>
-                product.id === selectedProduct.id ? selectedProduct : product
-            )
-        );
-        setSelectedProduct(null); // Close the editor after saving
+    const handleSave = async () => {
+        // Update the product in the database via PUT request
+        const updatedProduct = selectedProduct;
+        try {
+            const response = await fetch(`http://developerdove.com/ZaikoApp/products/${updatedProduct.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedProduct),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to update product");
+            }
+
+            // Update the local state with the updated product
+            setProducts((prevProducts) =>
+                prevProducts.map((product) =>
+                    product.id === updatedProduct.id ? updatedProduct : product
+                )
+            );
+            setSelectedProduct(null); // Close the editor after saving
+        } catch (error) {
+            console.error(error);
+            alert("Failed to save product");
+        }
     };
 
     // Handle delete confirmation overlay
@@ -74,13 +94,28 @@ function ProductPage() {
         setShowConfirmation(false); // Hide the confirmation overlay
     };
 
-    const handleDeleteConfirm = () => {
-        // Perform delete action here
-        setProducts((prevProducts) =>
-            prevProducts.filter((product) => product.id !== selectedProduct.id) // Remove selected product
-        );
-        setSelectedProduct(null); // Close the editor after deletion
-        setShowConfirmation(false); // Hide the confirmation overlay
+    const handleDeleteConfirm = async () => {
+        // Perform delete action here via DELETE request
+        const productId = selectedProduct.id;
+        try {
+            const response = await fetch(`http://developerdove.com/ZaikoApp/products/${productId}`, {
+                method: "DELETE",
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to delete product");
+            }
+
+            // Remove the product from the local state after successful deletion
+            setProducts((prevProducts) =>
+                prevProducts.filter((product) => product.id !== productId)
+            );
+            setSelectedProduct(null); // Close the editor after deletion
+            setShowConfirmation(false); // Hide the confirmation overlay
+        } catch (error) {
+            console.error(error);
+            alert("Failed to delete product");
+        }
     };
 
     return (

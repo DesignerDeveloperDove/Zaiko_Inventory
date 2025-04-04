@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import DataInfo from "./Data";
 
 function Los({ options, onSelect }) {
-    const [products, setProducts] = useState([]); // State for all products
-    const [locationList, setLocationList] = useState([]); // This stores a list of unique locations
+    const [products, setProducts] = useState([]);
+    const [locationList, setLocationList] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
-    const filterOverlayRef = useRef(null); // Ref for Filter Overlay
+    const [filter, setFilter] = useState(null); // Filter state for FOH/BOH
 
-    // fetch products from backend
+    const dropdownRef = useRef(null);
+    const filterOverlayRef = useRef(null);
+
     useEffect(() => {
         fetch("http://developerdove.com/ZaikoApp/")
             .then((res) => res.json())
@@ -20,23 +21,24 @@ function Los({ options, onSelect }) {
             .catch(() => alert("No products have been grabbed"));
     }, []);
 
+    useEffect(() => {
+        let locations = products
+            .filter(product => !filter || product.HouseLocation === filter) // Apply filter
+            .map(product => product.location)
+            .filter((value, index, self) => self.indexOf(value) === index);
+        setLocationList(locations);
+    }, [products, filter]);
+
     const productCounts = products.reduce((acc, product) => {
-        acc[product.location] = (acc[product.location] || 0) + 1;
+        if (!filter || product.houseLocation === filter) {
+            acc[product.location] = (acc[product.location] || 0) + 1;
+        }
         return acc;
     }, {});
 
     const Tabcolors = ["#D0DDF5", "#F3B5B5", "#CAE2C3", "#FCE7CA", "#F7D9FF"];
 
-    useEffect(() => {
-        const locations = products
-            .map((product) => product.location)
-            .filter((value, index, self) => self.indexOf(value) === index);
-        setLocationList(locations);
-    }, [products]);
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleOptionClick = (option) => {
         onSelect(option);
@@ -45,7 +47,6 @@ function Los({ options, onSelect }) {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            // this should nly close if the click is outside both the dropdown and the FilterOverLay
             if (
                 dropdownRef.current && !dropdownRef.current.contains(event.target) &&
                 filterOverlayRef.current && !filterOverlayRef.current.contains(event.target)
@@ -59,6 +60,15 @@ function Los({ options, onSelect }) {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);
+
+    const handleFilterChange = (event) => {
+        const { id, checked } = event.target;
+        if (checked) {
+            setFilter(id); // Set filter to FOH or BOH
+        } else {
+            setFilter(null); // Reset filter
+        }
+    };
 
     return (
         <>
@@ -82,12 +92,18 @@ function Los({ options, onSelect }) {
                                 <div>
                                     <input 
                                         type="checkbox" 
+                                        id="FOH"
+                                        checked={filter === "FOH"}
+                                        onChange={handleFilterChange}
                                     /> 
                                     <h2>FOH Locations</h2>
                                 </div>
                                 <div>
                                     <input 
                                         type="checkbox" 
+                                        id="BOH"
+                                        checked={filter === "BOH"}
+                                        onChange={handleFilterChange}
                                     /> 
                                     <h2>BOH Locations</h2>
                                 </div>

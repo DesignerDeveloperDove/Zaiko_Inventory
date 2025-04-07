@@ -63,7 +63,7 @@ function ProfilePage() {
                                     </tr>
                                 )) : (
                                     <tr>
-                                <p><img src="ZaikoLogo.jpg" alt="" />.</p>
+                                <p><img src="../ZaikoLogo.jpg" alt="" />.</p>
                         </tr>
                                 )}
                             </tbody>

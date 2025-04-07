@@ -14,4 +14,5 @@ export default defineConfig({
   define: {
     "process.env.SWC_USE_WASM": "true",
   },
+  
 });

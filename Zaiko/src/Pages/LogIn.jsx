@@ -17,7 +17,7 @@ function LogIn() {
   };
 
   const flags = [
-    { src: "../USAFlag.png", alt: "USAFlag", lang: "ENG" },
+    { src: "../USAFlag.png", alt: "USAFlag", lang: "ENG" } ,
     { src: "../SpainFlag.svg", alt: "SpainFlag", lang: "ES" },
     { src: "../VietnamFlag.png", alt: "VietnamFlag", lang: "VN" },
     { src: "../ThailandFlag.png", alt: "ThailandFlag", lang: "TH" },

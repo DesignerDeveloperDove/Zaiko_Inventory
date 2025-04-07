@@ -125,7 +125,7 @@ function ProductPage() {
                     <div>
                         <Link to="/Home">&lt; {decodedLocation}</Link>
                     </div>
-                    <img src="../src/assets/edit icon.svg" alt="" />
+                    <img src="../edit icon.svg" alt="" />
                 </div>
                 <form action="">
                     <input type="text" placeholder="Search..." />

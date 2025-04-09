@@ -10,7 +10,7 @@ function ProductPage() {
     const [showConfirmation, setShowConfirmation] = useState(false); // Track overlay visibility
 
     useEffect(() => {
-        fetch("http://developerdove.com/ZaikoApp/")
+        fetch("https://developerdove.com/Zaiko/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
                 const filteredProducts = data.products.filter(
@@ -57,28 +57,32 @@ function ProductPage() {
 
     // Handle Save: Update the product and close the editor
     const handleSave = async () => {
-        // Update the product in the database via PUT request
         const updatedProduct = selectedProduct;
         try {
-            const response = await fetch(`http://developerdove.com/ZaikoApp/products/${updatedProduct.id}`, {
+            const response = await fetch("https://developerdove.com/Zaiko/ZaikoApp/", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(updatedProduct),
             });
-
+    
+            // Log the status and body of the response
+            console.log("Response Status:", response.status);
+            const responseBody = await response.json();
+            console.log("Response Body:", responseBody);
+    
             if (!response.ok) {
-                throw new Error("Failed to update product");
+                throw new Error(`Failed to update product: ${responseBody.error || "Unknown error"}`);
             }
-
-            // Update the local state with the updated product
+    
+            // Update local state after success
             setProducts((prevProducts) =>
                 prevProducts.map((product) =>
                     product.id === updatedProduct.id ? updatedProduct : product
                 )
             );
-            setSelectedProduct(null); // Close the editor after saving
+            setSelectedProduct(null);
         } catch (error) {
             console.error(error);
             alert("Failed to save product");
@@ -95,17 +99,25 @@ function ProductPage() {
     };
 
     const handleDeleteConfirm = async () => {
-        // Perform delete action here via DELETE request
-        const productId = selectedProduct.id;
+        const productId = selectedProduct.id; // Get the ID of the selected product
         try {
-            const response = await fetch(`http://developerdove.com/ZaikoApp/products/${productId}`, {
+            const response = await fetch(`https://developerdove.com/Zaiko/ZaikoApp/products/${productId}`, {
                 method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ id: productId }),  // Sending the product ID in the request body
             });
-
+    
+            // Log the status and body of the response
+            console.log("Delete Response Status:", response.status);
+            const responseBody = await response.json();
+            console.log("Delete Response Body:", responseBody);
+    
             if (!response.ok) {
-                throw new Error("Failed to delete product");
+                throw new Error(`Failed to delete product: ${responseBody.error || "Unknown error"}`);
             }
-
+    
             // Remove the product from the local state after successful deletion
             setProducts((prevProducts) =>
                 prevProducts.filter((product) => product.id !== productId)
@@ -125,7 +137,7 @@ function ProductPage() {
                     <div>
                         <Link to="/Home">&lt; {decodedLocation}</Link>
                     </div>
-                    <img src="../edit icon.svg" alt="" />
+                    <img src="/edit icon.svg" alt="" />
                 </div>
                 <form action="">
                     <input type="text" placeholder="Search..." />

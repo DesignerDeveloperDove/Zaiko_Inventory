@@ -13,7 +13,7 @@ function Los({ options, onSelect }) {
     const filterOverlayRef = useRef(null);
 
     useEffect(() => {
-        fetch("http://developerdove.com/Zaiko/ZaikoApp//")
+        fetch("https://developerdove.com/Zaiko/ZaikoApp//")
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data.products || []);

@@ -6,7 +6,7 @@ function WalkIn() {
 
   // Fetch products on mount
   useEffect(() => {
-    fetch("http://developerdove.com/ZaikoApp/")
+    fetch("http://developerdove.com/Zaiko/ZaikoApp/")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products || []); // Store all products

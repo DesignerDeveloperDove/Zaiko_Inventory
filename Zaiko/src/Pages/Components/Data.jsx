@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Data_URL = "http://developerdove.com/ZaikoApp/"; // Ensure this matches your PHP server URL
+const Data_URL = "http://developerdove.com/Zaiko/ZaikoApp/"; // Ensure this matches your PHP server URL
 
 
 

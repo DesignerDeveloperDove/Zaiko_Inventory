@@ -11,7 +11,7 @@ import ProfilePage from "./Pages/ProfilePage";
 function App() {
 
   return (
-    <Router>
+    <Router basename="/Zaiko">
     <Routes>
       <Route path="/" element={<LogIn />} />
       <Route path="/home" element={<Home />} />

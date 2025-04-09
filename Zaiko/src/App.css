@@ -279,7 +279,7 @@ footer {
 
 .productList{
   background-color: #e7e7e7;
-  width: fit-content;
+  width: 100%;
 }
 .productList h2 {
   font-size: 3vw;

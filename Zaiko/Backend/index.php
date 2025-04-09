@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 // Handle PUT request for updating a product
 if ($_SERVER["REQUEST_METHOD"] === "PUT") {
-    parse_str(file_get_contents("php://input"), $data); // Parse PUT data
+    $data = json_decode(file_get_contents("php://input"), true); // Correctly decode JSON
 
     if (!isset($data["id"]) || !isset($data["name"]) || !isset($data["location"]) || !isset($data["quantity"]) || !isset($data["HouseLocation"])) {
         echo json_encode(["error" => "Missing required fields"]);
@@ -74,17 +74,22 @@ if ($_SERVER["REQUEST_METHOD"] === "PUT") {
 
 // Handle DELETE request for deleting a product
 if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
-    parse_str(file_get_contents("php://input"), $data); // Parse DELETE data
+    // Read raw POST data from php://input and decode it as JSON
+    $data = json_decode(file_get_contents("php://input"), true);
 
+    // Check if the product ID is provided in the request
     if (!isset($data["id"])) {
         echo json_encode(["error" => "Product ID is required"]);
         exit();
     }
 
+    // Get the product ID from the decoded data
     $id = intval($data["id"]);
 
+    // Prepare the SQL DELETE query
     $sql = "DELETE FROM Products WHERE ProdId=$id";
 
+    // Execute the query and check for success
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["success" => "Product deleted successfully"]);
     } else {

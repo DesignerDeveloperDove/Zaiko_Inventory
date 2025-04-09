@@ -8,7 +8,7 @@ function ProfilePage() {
     const [employee, setEmployee] = useState({ EmpID: "", FirstName: "", LastName: "", EmpPosition: "", StoreNum: "" });
 
     useEffect(() => {
-        fetch("http://developerdove.com/Zaiko/ZaikoApp/")
+        fetch("https://developerdove.com/Zaiko/ZaikoApp/")
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched data:", data);

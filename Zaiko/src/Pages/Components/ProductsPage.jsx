@@ -89,7 +89,7 @@ function ProductPage() {
         }
     };
 
-    // Handle delete confirmation overlay
+    //  Handle delete confirmation overlay
     const handleDeleteClick = () => {
         setShowConfirmation(true); // Show the confirmation overlay
     };
@@ -111,7 +111,18 @@ function ProductPage() {
     
             // Log the status and body of the response
             console.log("Delete Response Status:", response.status);
-            const responseBody = await response.json();
+    
+            // Only parse the response if it's JSON
+            const contentType = response.headers.get("Content-Type");
+            let responseBody = null;
+            if (contentType && contentType.includes("application/json")) {
+                responseBody = await response.json();
+            } else {
+                const text = await response.text(); // Get the response as plain text
+                console.error("Expected JSON but got:", text);
+                throw new Error("Response is not JSON");
+            }
+    
             console.log("Delete Response Body:", responseBody);
     
             if (!response.ok) {
@@ -124,6 +135,7 @@ function ProductPage() {
             );
             setSelectedProduct(null); // Close the editor after deletion
             setShowConfirmation(false); // Hide the confirmation overlay
+    
         } catch (error) {
             console.error(error);
             alert("Failed to delete product");

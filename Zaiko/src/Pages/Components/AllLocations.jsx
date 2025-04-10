@@ -76,7 +76,7 @@ function Los({ options, onSelect }) {
                 <div>
                     <div className="dropdown" ref={dropdownRef}>
                         <button onClick={toggleDropdown}>
-                            <img className="FilterIcon" src="../filter button icon.svg" alt="" />
+                            <img className="FilterIcon" src="../Zaiko/filter button icon.svg" alt="" />
                         </button>
                     </div>
                     {isOpen && (

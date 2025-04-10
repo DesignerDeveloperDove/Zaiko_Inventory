@@ -113,7 +113,7 @@ function Los({ options, onSelect }) {
                 </div>
                 <h1 className="Header">Locations</h1>
                 <div className="ArrowIcon">
-                    <img src="../arrow icon.svg" alt="" />
+                    <img src="../Zaiko/arrow icon.svg" alt="" />
                 </div>
             </div>
 
@@ -138,7 +138,7 @@ function Los({ options, onSelect }) {
                         ))
                     ) : (
                         <p>
-                            <img src="../ZaikoLogo.jpg" alt="" />.
+                            <img src="../Zaiko/ZaikoLogo.jpg" alt="" />.
                         </p>
                     )}
                 </ul>

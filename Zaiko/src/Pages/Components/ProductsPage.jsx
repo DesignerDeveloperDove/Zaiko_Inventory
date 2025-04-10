@@ -137,7 +137,7 @@ function ProductPage() {
                     <div>
                         <Link to="/Home">&lt; {decodedLocation}</Link>
                     </div>
-                    <img src="/edit icon.svg" alt="" />
+                    <img src="../Zaiko/edit icon.svg" alt="" />
                 </div>
                 <form action="">
                     <input type="text" placeholder="Search..." />

@@ -372,7 +372,7 @@ font-weight: bold;
 .LocationTabs ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
+  justify-items: left;
   width: auto;
   margin-bottom: 20px;
 }
@@ -540,12 +540,12 @@ tr:hover {
   border-radius: 100%;
 }
 
-.ProductHeader {
+/*.ProductHeader {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+}*/
 
 .nameArrow{
   display: inline;
@@ -562,6 +562,14 @@ tr:hover {
 .HeaderTop img {
   width: 40px;
   height: 40px;
+}
+
+.ProfileHeader{
+  background-color: #0d2149;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding-left: 5%;
 }
 
 .ProfileHeader h1{

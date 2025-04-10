@@ -23,7 +23,7 @@ function ProfilePage() {
         <div className="productList">
                 <div className="ProfileHeader">
                 <div className="PFP">
-                        <p></p>
+                        <p><img src="../Zaiko/ToriProf.svg" alt=""/></p>
                     </div>
                     <div id="PFHInfo">
                         <h1>{employee.FirstName} {employee.LastName}</h1>

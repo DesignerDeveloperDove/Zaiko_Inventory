@@ -99,48 +99,45 @@ function ProductPage() {
     };
 
     const handleDeleteConfirm = async () => {
-        const productId = selectedProduct.id; // Get the ID of the selected product
+        const productId = selectedProduct.id;
+    
+        // ⚡ Remove from frontend first
+        setProducts(prevProducts =>
+            prevProducts.filter(product => product.id !== productId)
+        );
+        setSelectedProduct(null);
+        setShowConfirmation(false);
+    
         try {
             const response = await fetch(`https://developerdove.com/Zaiko/ZaikoApp/products/${productId}`, {
                 method: "DELETE",
                 headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ id: productId }),  // Sending the product ID in the request body
+                    "Content-Type": "application/json"
+                }
             });
     
-            // Log the status and body of the response
             console.log("Delete Response Status:", response.status);
     
-            // Only parse the response if it's JSON
             const contentType = response.headers.get("Content-Type");
             let responseBody = null;
             if (contentType && contentType.includes("application/json")) {
                 responseBody = await response.json();
             } else {
-                const text = await response.text(); // Get the response as plain text
+                const text = await response.text();
                 console.error("Expected JSON but got:", text);
                 throw new Error("Response is not JSON");
             }
-    
-            console.log("Delete Response Body:", responseBody);
     
             if (!response.ok) {
                 throw new Error(`Failed to delete product: ${responseBody.error || "Unknown error"}`);
             }
     
-            // Remove the product from the local state after successful deletion
-            setProducts((prevProducts) =>
-                prevProducts.filter((product) => product.id !== productId)
-            );
-            setSelectedProduct(null); // Close the editor after deletion
-            setShowConfirmation(false); // Hide the confirmation overlay
-    
         } catch (error) {
             console.error(error);
-            alert("Failed to delete product");
+            alert("Product removed from view, but failed to delete from server.");
         }
     };
+    
 
     return (
         <div className="productList">

@@ -73,29 +73,25 @@ if ($_SERVER["REQUEST_METHOD"] === "PUT") {
 }
 
 // Handle DELETE request for deleting a product
-if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
-    // Read raw POST data from php://input and decode it as JSON
-    $data = json_decode(file_get_contents("php://input"), true);
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    // Ensure DELETE is passed as expected in URL
+    $urlPath = $_SERVER['REQUEST_URI'];
 
-    // Check if the product ID is provided in the request
-    if (!isset($data["id"])) {
-        echo json_encode(["error" => "Product ID is required"]);
-        exit();
-    }
+    // Match the URL path to extract the product ID
+    if (preg_match('/\/Zaiko\/ZaikoApp\/products\/(\d+)$/', $urlPath, $matches)) {
+        $productId = $matches[1]; // Get the product ID from the URL
 
-    // Get the product ID from the decoded data
-    $id = intval($data["id"]);
+        // Proceed to delete the product from the database
+        $sql = "DELETE FROM Products WHERE ProdId = $productId";
 
-    // Prepare the SQL DELETE query
-    $sql = "DELETE FROM Products WHERE ProdId=$id";
-
-    // Execute the query and check for success
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(["success" => "Product deleted successfully"]);
+        if ($conn->query($sql) === TRUE) {
+            echo json_encode(["success" => "Product deleted successfully"]);
+        } else {
+            echo json_encode(["error" => "Failed to delete product"]);
+        }
     } else {
-        echo json_encode(["error" => "Failed to delete product: " . $conn->error]);
+        echo json_encode(["error" => "Product not found"]);
     }
-    exit();
 }
 
 $Data = ["users" => [], "products" => [], "Employee" => [], "InventoryLog" => []];

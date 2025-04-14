@@ -113,7 +113,7 @@ function Los({ options, onSelect }) {
                 </div>
                 <h1 className="Header">Locations</h1>
                 <div className="ArrowIcon">
-                    <img src="../Zaiko/arrow icon.svg" alt="" />
+                    <img src="../Zaiko/edit icon.svg" alt="" />
                 </div>
             </div>
 

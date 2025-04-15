@@ -538,14 +538,27 @@ tr:hover {
   font-weight: bolder;
 }
 
+.LazyLoad img{
+  display: flex;
+  justify-content: center;
+  width: 200%;
+  height: 100%;
+}
+
 /* profile page */
 .PFP{
   width: 200px;
   height: 200px;
-  background-color: #fdfdfd;
+  background-color: #555;
   margin-top: 5%;
   margin-right: 15%;
   border-radius: 100%;
+}
+
+.PFP img {
+  border-radius: 100%;
+  width: 100%;
+  height: auto;
 }
 
 /*.ProductHeader {
@@ -638,20 +651,35 @@ color: #fffcfc;
   color: white;
 }
 
+.SettingsMenu {
+  background-color: #f0f0f0;
+}
+
+.SettingsMenu ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.SettingsMenu li {
+  margin: 10px;
+}
+
 .LogOut {
-  width: 400px;
-  height: auto;
-  background-color: black;
+  width: 75%;
+  height: 70px;
+  background-color: #0d2149;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   position: fixed;
-  bottom: 115px;
+  bottom: 140px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .LogOut h1{
 color: white;
+font-size: 20px;
 }
 /*OVERLAY Filter*/
 .LocationNav {

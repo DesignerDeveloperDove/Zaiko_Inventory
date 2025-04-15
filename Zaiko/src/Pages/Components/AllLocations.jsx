@@ -113,9 +113,7 @@ function Los({ options, onSelect }) {
                 </div>
                 <h1 className="Header">Locations</h1>
                 <div className="ArrowIcon">
-                    <img src="../Zaiko/assets/edit icon.svg" alt="" />
-                    {/*<img src="../Zaiko/assets/arrow icon.svg" alt="" />*/}
-
+                    <img src="../Zaiko/arrow icon.svg" alt="" />
                 </div>
             </div>
 
@@ -139,9 +137,9 @@ function Los({ options, onSelect }) {
                             </div>
                         ))
                     ) : (
-                        <p>
+                        <div className="LazyLoad">
                             <img src="../Zaiko/assets/ZaikoLogo.jpg" alt="" />.
-                        </p>
+                        </div>
                     )}
                 </ul>
             </div>

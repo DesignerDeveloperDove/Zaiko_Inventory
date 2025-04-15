@@ -137,9 +137,9 @@ function Los({ options, onSelect }) {
                             </div>
                         ))
                     ) : (
-                        <p>
+                        <div className="LazyLoad">
                             <img src="../Zaiko/ZaikoLogo.jpg" alt="" />.
-                        </p>
+                        </div>
                     )}
                 </ul>
             </div>

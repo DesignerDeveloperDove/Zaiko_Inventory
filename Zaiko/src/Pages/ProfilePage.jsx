@@ -23,7 +23,7 @@ function ProfilePage() {
         <div className="productList">
                 <div className="ProfileHeader">
                 <div className="PFP">
-                        <p><img src="../Zaiko/ToriProf.svg" alt=""/></p>
+                        <p><img src="../Zaiko/assets/ToriProf.svg" alt=""/></p>
                     </div>
                     <div id="PFHInfo">
                         <h1>{employee.FirstName} {employee.LastName}</h1>
@@ -63,7 +63,7 @@ function ProfilePage() {
                                     </tr>
                                 )) : (
                                     <tr>
-                                <p><img src="../ZaikoLogo.jpg" alt="" />.</p>
+                                <p><img src="../Zaiko/assetsZaikoLogo.jpg" alt="" />.</p>
                         </tr>
                                 )}
                             </tbody>

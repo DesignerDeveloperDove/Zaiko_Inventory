@@ -5,6 +5,8 @@ import Footer from "./Footer";
 function ProductPage() {
     const { location } = useParams();
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]); // New state for filtered products
+    const [searchQuery, setSearchQuery] = useState(""); // State to hold the search query
     const [selectedProduct, setSelectedProduct] = useState(null); // Track selected product for editing
     const [locations, setLocations] = useState([]); // Track available locations
     const [showConfirmation, setShowConfirmation] = useState(false); // Track overlay visibility
@@ -17,32 +19,38 @@ function ProductPage() {
                     (product) => product.location === location
                 );
                 setProducts(filteredProducts);
+                setFilteredProducts(filteredProducts); // Set initial filtered products
 
-                // Assuming you get a list of locations from the data
                 const uniqueLocations = [...new Set(data.products.map(product => product.location))];
                 setLocations(uniqueLocations); // Set available locations
             })
             .catch(() => alert("Loading Products...."));
     }, [location]);
 
-    const decodedLocation = decodeURIComponent(location);
+    // Update the filtered products based on the search query
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value); // Update search query
+        const lowercasedQuery = e.target.value.toLowerCase();
+        const filtered = products.filter(product =>
+            product.name.toLowerCase().includes(lowercasedQuery) // Filter by product name
+        );
+        setFilteredProducts(filtered); // Update filtered products
+    };
 
     // Function to handle quantity increment
     const incrementQuantity = (index) => {
-        setProducts((prevProducts) =>
-            prevProducts.map((product, i) =>
-                i === index ? { ...product, quantity: product.quantity + 1 } : product
-            )
-        );
+        const updatedProducts = [...products];
+        updatedProducts[index].quantity += 1;
+        setProducts(updatedProducts);
+        handleSave(updatedProducts[index]); // Save updated product after increment
     };
 
     // Decrementing the quantity
     const decrementQuantity = (index) => {
-        setProducts((prevProducts) =>
-            prevProducts.map((product, i) =>
-                i === index ? { ...product, quantity: product.quantity - 1 } : product
-            )
-        );
+        const updatedProducts = [...products];
+        updatedProducts[index].quantity -= 1;
+        setProducts(updatedProducts);
+        handleSave(updatedProducts[index]); // Save updated product after decrement
     };
 
     // Handle click on a product to open the editor
@@ -56,8 +64,7 @@ function ProductPage() {
     };
 
     // Handle Save: Update the product and close the editor
-    const handleSave = async () => {
-        const updatedProduct = selectedProduct;
+    const handleSave = async (updatedProduct) => {
         try {
             const response = await fetch("https://developerdove.com/Zaiko/ZaikoApp/", {
                 method: "PUT",
@@ -66,30 +73,23 @@ function ProductPage() {
                 },
                 body: JSON.stringify(updatedProduct),
             });
-    
-            // Log the status and body of the response
-            console.log("Response Status:", response.status);
-            const responseBody = await response.json();
-            console.log("Response Body:", responseBody);
-    
+
             if (!response.ok) {
-                throw new Error(`Failed to update product: ${responseBody.error || "Unknown error"}`);
+                throw new Error("Failed to update product");
             }
-    
-            // Update local state after success
+
             setProducts((prevProducts) =>
                 prevProducts.map((product) =>
                     product.id === updatedProduct.id ? updatedProduct : product
                 )
             );
-            setSelectedProduct(null);
         } catch (error) {
             console.error(error);
             alert("Failed to save product");
         }
     };
 
-    //  Handle delete confirmation overlay
+    // Handle delete confirmation overlay
     const handleDeleteClick = () => {
         setShowConfirmation(true); // Show the confirmation overlay
     };
@@ -100,14 +100,13 @@ function ProductPage() {
 
     const handleDeleteConfirm = async () => {
         const productId = selectedProduct.id;
-    
-        // ⚡ Remove from frontend first
+
         setProducts(prevProducts =>
             prevProducts.filter(product => product.id !== productId)
         );
         setSelectedProduct(null);
         setShowConfirmation(false);
-    
+
         try {
             const response = await fetch(`https://developerdove.com/Zaiko/ZaikoApp/products/${productId}`, {
                 method: "DELETE",
@@ -115,61 +114,48 @@ function ProductPage() {
                     "Content-Type": "application/json"
                 }
             });
-    
-            console.log("Delete Response Status:", response.status);
-    
-            const contentType = response.headers.get("Content-Type");
-            let responseBody = null;
-            if (contentType && contentType.includes("application/json")) {
-                responseBody = await response.json();
-            } else {
-                const text = await response.text();
-                console.error("Expected JSON but got:", text);
-                throw new Error("Response is not JSON");
-            }
-    
+
             if (!response.ok) {
-                throw new Error(`Failed to delete product: ${responseBody.error || "Unknown error"}`);
+                throw new Error("Failed to delete product");
             }
-    
+
         } catch (error) {
             console.error(error);
             alert("Product removed from view, but failed to delete from server.");
         }
     };
-    
 
     return (
         <div className="productList">
             <div className="ProductHeader">
                 <div className="HeaderTop">
-                    <div>
-                        <Link to="/Home">&lt; {decodedLocation}</Link>
+                    <Link to='/Home'><img src="/Zaiko/assets/arrow icon.svg" alt="" /></Link>
+                    <div className="LocHeader">
+                        <Link to="/Home">{decodeURIComponent(location)}</Link>
                     </div>
-                    <img src="../Zaiko/edit icon.svg" alt="" />
+                    <img src="/Zaiko/assets/edit icon.svg" alt="" />
                 </div>
-                <form action="">
-                    <input type="text" placeholder="Search..." />
+                <form action="" className="SearchBar">
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchQuery} // Controlled input
+                        onChange={handleSearch} // Handle search as user types
+                    />
                 </form>
             </div>
 
             <ul>
-                {products.length > 0 ? (
-                    products.map((product, index) => (
-                        <div
-                            className="productCard"
-                            key={product.id}
-                            onClick={() => handleEditClick(product)} // Set product for editing
-                        >
-                            <h3>{product.name}</h3>
+                {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product, index) => (
+                        <div className="productCard" key={product.id}>
+                            <h3 onClick={() => handleEditClick(product)}>{product.name}</h3>
                             <form className="EditQTY" action="">
                                 <button
                                     id="QTYBTN"
                                     type="button"
                                     onClick={() => incrementQuantity(index)}
-                                >
-                                    +
-                                </button>
+                                >+</button>
                                 <input
                                     id="QTYField"
                                     type="number"
@@ -180,18 +166,15 @@ function ProductPage() {
                                     id="QTYBTN"
                                     type="button"
                                     onClick={() => decrementQuantity(index)}
-                                >
-                                    -
-                                </button>
+                                >-</button>
                             </form>
                         </div>
                     ))
                 ) : (
-                    <p>Loading Products....</p>
+                    <p>No products found.</p>
                 )}
             </ul>
 
-            {/* Show Product Editor only when a product is selected */}
             {selectedProduct && (
                 <div className="ProductEditor">
                     <div id="SettingsRow">
@@ -271,7 +254,7 @@ function ProductPage() {
                     </div>
 
                     <div className="SaveBTN">
-                        <button type="button" onClick={handleSave}>
+                        <button type="button" onClick={() => handleSave(selectedProduct)}>
                             <h1>Save</h1>
                         </button>
                     </div>

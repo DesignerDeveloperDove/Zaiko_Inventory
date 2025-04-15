@@ -47,7 +47,7 @@ html{
 .Header{
   color: #011f5b;
   font-family: Open Sans;
-  width: auto;
+  width: 60%;
   display: flex;
   justify-content: start;
 
@@ -72,13 +72,14 @@ html{
 }
 
 #LogInBtn {
-  width: 50%;
-  height: 8vh;
+  width: 70%;
+  height: 7vh;
   display: flex;
   margin: auto;
   margin-top: 4%;
   margin-bottom: 4%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #011f5b;
+  border-radius: 8px;
 }
 
 #LogInBtn h2 {
@@ -87,8 +88,8 @@ html{
 }
 
 #LogInBtn:active {
-  width: 50%;
-  height: 8vh;
+  width: 70%;
+  height: 7vh;
   display: flex;
   margin: auto;
   margin-top: 4%;
@@ -97,10 +98,10 @@ html{
 }
 
 #LogInForm input {
-  border-radius: 15px;
-  height: 8vh;
+  border-radius: 8px;
+  height: 7vh;
   margin: 5px;
-  width: 40vw;
+  width: 64%;
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -317,6 +318,7 @@ footer {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-right: 310px;
 }
 
 .productCard p {
@@ -325,6 +327,9 @@ footer {
   justify-content: center;
   width: 100%;
   flex-direction: row;
+}
+.productCard form{
+z-index: 100;
 }
 .EditQTY{
   display: flex;
@@ -336,15 +341,16 @@ footer {
 }
 #QTYBTN{
   border: none;
-  width: 40px;
+  width: 30px;
   height: 40px;
-  border-radius: 100%;
+  border-radius: 100px;
   background-color: #011f5b;
   font-size: 35px;
-  margin-top: 25px;
+  margin-top: 15px;
+  color: white;
 }
 #QTYField{
-margin: 20px;
+margin: 15px;
 width: 47px ;
 height: 47px;
 background-color: white;
@@ -422,6 +428,7 @@ font-weight: bold;
   background-color: #f3f3f3;
   margin-left: -10px;
   scroll-behavior: smooth;
+  font-size: 80%;
 }
 
 .dropdown {
@@ -431,10 +438,11 @@ font-weight: bold;
 
 .dropdown button {
   color: black;
-  background-color: #f3f3f3;
+  background-color: #f3f3f300;
   padding: 10px;
   border: none;
   cursor: pointer;
+  border: none;
 }
 
 .dropdown-menu {
@@ -555,10 +563,18 @@ tr:hover {
 .HeaderTop {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  align-items: left;
+  width: 89%;
+  padding-left: 5%;
 }
+.LocHeader{
+  display: flex;
+  width: 100%;
+  height: 110%;
+  justify-content: top;
+  margin-left: 20px;
 
+}
 .HeaderTop img {
   width: 40px;
   height: 40px;
@@ -701,6 +717,9 @@ color: white;
   height: 40px;
   border-radius: 20px;
   font-size: large;
+  background-color: #e7e7e7;
+  border: solid 3px #011f5b;
+  color: #011f5b;
 }
 
 .formFilterBar :active{
@@ -718,7 +737,8 @@ color: white;
   width: 100%;
   z-index: 100;
   font-family: Open Sans;
-
+  animation: slideUp 0.15s ease-out;
+  box-shadow: 0 -400px 1000px rgba(0, 0, 0, 0.23)
 }
 .ProductEditor p{
   color: #011f5b;
@@ -746,11 +766,14 @@ color: white;
 }
 .ProductEditor form{
   width: 100%;
-  height: 60vh;
+  height: 55vh;
   font-family: Open Sans;
 
 }
-
+.OverLay-background {
+  background-color: rgba(0, 0, 0, 0.7);  /* Black background with some opacity */
+  transition: background-color 0.3s ease;  /* Smooth transition */
+}
 .ProductEditor form input{
   width: 100%;
   margin-bottom: 20px;
@@ -808,7 +831,20 @@ color: white;
 
 
 }
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 60;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+#slide-up {
+  animation: slideUp 0.4s ease-out;
+}
 /*Overlay*/
 .ConformationOverlay {
   position: fixed;
@@ -824,6 +860,8 @@ color: white;
   border-radius: 25px;
   box-shadow: 0px 0px 10px 2px #100e0e38;
   z-index: 101;
+  box-shadow: 0 400px 1200px rgba(0, 0, 0, 0.115), 0 -400px 1200px rgba(0, 0, 0, 0.115);
+
 }
 .ConformationOverlay  button{
   width: 90%;
